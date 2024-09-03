@@ -162,9 +162,9 @@ body {
 }
 
 .parameterCorrect {
-  width: 80px;
+  width: 100px;
   /* Width of each parameter square */
-  height: 80px;
+  height: 100px;
   /* Height of each parameter square */
   background-color: green;
   /* Background color for each parameter */
@@ -172,18 +172,16 @@ body {
   border: 3px solid black;
   /* Border for each parameter */
   display: flex;
-  justify-content: center;
-  /* Center content horizontally */
-  align-items: center;
+  text-align: center;
   /* Center content vertically */
   box-sizing: border-box;
   /* Ensure padding/border are included in width/height */
 }
 
 .parameterWrong {
-  width: 80px;
+  width: 100px;
   /* Width of each parameter square */
-  height: 80px;
+  height: 100px;
   /* Height of each parameter square */
   background-color: red;
   /* Background color for each parameter */
@@ -191,16 +189,13 @@ body {
   border: 3px solid black;
   /* Border for each parameter */
   display: flex;
-  justify-content: center;
-  /* Center content horizontally */
-  align-items: center;
-  /* Center content vertically */
+text-align: center;
   box-sizing: border-box;
   /* Ensure padding/border are included in width/height */
 }
 
 .parameterTitle {
-  width: 80px;
+  width: 100px;
   /* Width of each parameter square */
   height: 30px;
   /* Height of each parameter square */
