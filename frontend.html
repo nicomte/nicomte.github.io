@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ACdle</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+</head>
+<script src="js/script.js">
+
+
+</script>
+
+<body onload="resetGameStatus(); setGameStatus(); fetchVillagerPNGs();">
+    <main>
+        <section class="layout">
+            <section class="introduction">
+                <div id="instructions">
+                    <p>Welcome to ACdle, where you can test your Villager-Knowledge! Can you guess the Villager?</p>
+                    <p>Click on the start button to begin or press it again to start a new game.</p>
+                </div>
+            </section>
+
+            <section class="controlCenter">
+                <div onclick="startGame(); setGameStatus()" class="figure">
+                    <div id="startButton">
+                        Start
+                    </div>
+                </div>
+
+                <div class="gameStatus">
+                    <a>Game Status:</a><br>
+                    <a class="gameStatus" id="gameStatus"></a>
+                </div>
+            </section>
+
+            <section class="eingabebereich">
+
+                <div>
+                    <form>
+                        <input type="text" name="guessInput" id="guessInput" required oninput="showPreview()">
+                    </form>
+                    <div class="villagerPreviewBox"></div>
+                </div>
+
+                <div><button type="button" onclick="checkGuess()">&gt;&gt;Guess&lt;&lt;</button></div>
+
+            </section>
+            <section class="messages">
+                <a id="errorGuess"></a>
+                <div id="message">
+                    <a  id="victoryMessage">You won! Click on Start for a new game.</a>
+                </div>
+            </section>
+            <section>
+                <div class="guessTitle">
+                    <div class="parameterTitle">Name</div>
+                    <div class="parameterTitle">Species</div>
+                    <div class="parameterTitle">Gender</div>
+                    <div class="parameterTitle">Personality</div>
+                </div>
+            </section>
+            <section class="guesses" id="guesses">
+                <!--
+                <div class="guess">
+                    <div class="parameter" id="bezeichnung">test</div>
+                    <div class="parameter" id="species">test</div>
+                    <div class="parameter" id="gender">test</div>
+                    <div class="parameter" id="personality">test</div>
+                </div>
+                -->
+            </section>
+        </section>
+    </main>
+</body>
+
+</html>
