@@ -1,0 +1,304 @@
+@font-face {
+  font-family: Bokutoh;
+  src: url(../fonts/FOT-RodinBokutohProEB.otf);
+}
+
+p,
+a,
+div {
+  font-family: Bokutoh;
+}
+
+body {
+  background-image: url('../img/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #f0f0f0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    /* Optional: Adds a slight upward motion */
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.guess .parameterCorrect,
+.guess .parameterWrong {
+  opacity: 0;
+  /* Start hidden */
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.guess .parameterCorrect:nth-child(1),
+.guess .parameterWrong:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.guess .parameterCorrect:nth-child(2),
+.guess .parameterWrong:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.guess .parameterCorrect:nth-child(3),
+.guess .parameterWrong:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.guess .parameterCorrect:nth-child(4),
+.guess .parameterWrong:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+#startButton {
+  background-color: #1EDCB7;
+  height: 80px;
+  width: 240px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: white;
+}
+
+#startButton:hover {
+  box-sizing: border-box;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 7px;
+  border-color: #1EDCB7;
+  background: repeating-linear-gradient(45deg,
+      #02BFB3 0px,
+      #02BFB3 20px,
+      #00A69C 20px,
+      #00A69C 40px);
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  /* Stacks children vertically */
+  align-items: center;
+  /* Centers children horizontally */
+  justify-content: start;
+  /* Aligns children to the start of the flex container */
+  height: 100vh;
+  /* Optional: takes full height of the viewport */
+  padding-top: 20px;
+  /* Optional: adds some space at the top */
+}
+
+.eingabebereich {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.guesses {
+  display: flex;
+  flex-direction: column;
+  /* Arrange guesses in a column */
+  gap: 20px;
+  /* Space between each guess */
+  padding: 20px;
+  /* Optional padding for the section */
+
+}
+
+.guess {
+  display: flex;
+  flex-direction: row;
+  /* Arrange parameters in a row */
+  gap: 10px;
+  /* Space between each parameter */
+}
+
+.guessTitle {
+  display: flex;
+  flex-direction: row;
+  /* Arrange parameters in a row */
+  gap: 10px;
+  /* Space between each parameter */
+}
+
+.villagerPreviewBox {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove the border if the .villagerPreviewBox is empty */
+.villagerPreviewBox:empty {
+  border: none;
+}
+
+.villagerPreview {
+  display: flex;
+  flex-direction: row;
+  /* Arrange parameters in a row */
+  align-items: center;
+  gap: 10px;
+  background-color: #1EDCB7;
+}
+
+.villagerPreview img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+
+.villagerPreview:hover {
+  cursor: pointer;
+  background-color: #00A69C;
+}
+
+.parameterCorrect {
+  width: 80px;
+  /* Width of each parameter square */
+  height: 80px;
+  /* Height of each parameter square */
+  background-color: green;
+  /* Background color for each parameter */
+  border-radius: 15px;
+  border: 3px solid black;
+  /* Border for each parameter */
+  display: flex;
+  justify-content: center;
+  /* Center content horizontally */
+  align-items: center;
+  /* Center content vertically */
+  box-sizing: border-box;
+  /* Ensure padding/border are included in width/height */
+}
+
+.parameterWrong {
+  width: 80px;
+  /* Width of each parameter square */
+  height: 80px;
+  /* Height of each parameter square */
+  background-color: red;
+  /* Background color for each parameter */
+  border-radius: 15px;
+  border: 3px solid black;
+  /* Border for each parameter */
+  display: flex;
+  justify-content: center;
+  /* Center content horizontally */
+  align-items: center;
+  /* Center content vertically */
+  box-sizing: border-box;
+  /* Ensure padding/border are included in width/height */
+}
+
+.parameterTitle {
+  width: 80px;
+  /* Width of each parameter square */
+  height: 30px;
+  /* Height of each parameter square */
+  display: flex;
+  justify-content: center;
+  /* Center content horizontally */
+  align-items: center;
+  /* Center content vertically */
+  box-sizing: border-box;
+  /* Ensure padding/border are included in width/height */
+}
+
+#errorGuess:empty {
+  display: none;
+}
+
+#errorGuess {
+  color: red;
+  background: url(../img/textboxv2.png);
+  font-size: 20px;
+  padding: 10px;
+  border-style: solid;
+  border-width: 10px;
+  border-image-source: url(../img/stripedBorder.png);
+  border-image-slice: 58;
+  /* Adjust this value based on your image to avoid distortion */
+  border-image-repeat: repeat;
+  /* Ensures the image repeats rather than stretches */
+
+}
+
+
+#message {
+  position: relative;
+  z-index: 1000;
+  /* High z-index to ensure it's in the foreground */
+  width: 512px;
+  height: 384px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: none;
+  background-image: url(../img/victory.png);
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  /* Subtle shadow for emphasis */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#victoryMessage {
+  text-align: center;
+  font-size: 32px;
+}
+
+section {
+  padding: 10px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  /* Arrange parameters in a row */
+  gap: 10px;
+  /* Space between each parameter */
+  align-items: center;
+}
+
+.controlCenter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div.gameStatus {
+  height: 60px;
+  border-radius: 25px;
+  color: white;
+  background-color: #1EDCB7;
+  padding: 10px;
+  margin: 10px;
+}
+
+#gameStatus {
+  color: #000;
+}
+
+
+#instructions {
+  background: url(../img/textboxv2.png);
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-style: solid;
+  border-width: 10px;
+  border-image-source: url(../img/stripedBorder.png);
+  border-image-slice: 42;
+  /* Adjust this value based on your image to avoid distortion */
+  border-image-repeat: repeat;
+  /* Ensures the image repeats rather than stretches */
+}
