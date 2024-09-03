@@ -632,6 +632,14 @@ function showPreview() {
         previewBox.appendChild(previewDiv);
     });
 }
+function toggleInfo(show) {
+    const infoBox = document.getElementById('infoBox');
+    if (show) {
+        infoBox.style.display = "flex"; // Show the info box
+    } else {
+        infoBox.style.display = "none"; // Hide the info box
+    }
+}
 
 async function fetchVillagerPNGs() {
     try {

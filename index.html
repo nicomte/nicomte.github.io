@@ -9,13 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 
 </head>
-<script src="js/script.js">
-
-
-</script>
+<script src="js/script.js"></script>
 
 <body onload="resetGameStatus(); setGameStatus(); fetchVillagerPNGs();">
-    <main>
+    <main class="aufteilung">
+        <section class="sideboard-left">
+            <div class="info">
+                <img id="infoIcon" onmouseover="toggleInfo(true)" onmouseout="toggleInfo(false)" src="img/info.png" alt="Exclamation mark that signals information">
+                <div id="infoBox">Not affiliated with Nintendo. Characters and
+                    background-textures are property of
+                    Nintendo. <br>
+                    Thanks to the people of Nookipedia.com for letting me use their API.
+                </div>
+            </div>
+        </section>
         <section class="layout">
             <section class="introduction">
                 <div id="instructions">
@@ -52,7 +59,7 @@
             <section class="messages">
                 <a id="errorGuess"></a>
                 <div id="message">
-                    <a  id="victoryMessage">You won! Click on Start for a new game.</a>
+                    <a id="victoryMessage">You won! Click on Start for a new game.</a>
                 </div>
             </section>
             <section>
@@ -74,6 +81,7 @@
                 -->
             </section>
         </section>
+        <section class="sideboard-right"></section>
     </main>
 </body>
 

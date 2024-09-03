@@ -83,8 +83,36 @@ body {
       #00A69C 40px);
 }
 
+.aufteilung{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+.sideboard-left{
+  flex: 1;
+
+}
+.sideboard-right{
+  flex: 1;
+}
+#infoIcon:hover{
+cursor: pointer;
+}
+#infoBox{
+  background-color: #1EDCB7;
+  border-image: url(../img/stripedBorder.png);
+  border-style: solid;
+  border-width: 10px;
+  border-image-slice: 58;
+  /* Adjust this value based on your image to avoid distortion */
+  border-image-repeat: repeat;
+  padding: 10px;
+  display: none;
+}
+
 .layout {
   display: flex;
+  flex: 3;
   flex-direction: column;
   /* Stacks children vertically */
   align-items: center;
@@ -162,9 +190,9 @@ body {
 }
 
 .parameterCorrect {
-  width: 100px;
+  width: 110px;
   /* Width of each parameter square */
-  height: 100px;
+  height: 110px;
   /* Height of each parameter square */
   background-color: green;
   /* Background color for each parameter */
@@ -181,9 +209,9 @@ body {
 }
 
 .parameterWrong {
-  width: 100px;
+  width: 110px;
   /* Width of each parameter square */
-  height: 100px;
+  height: 110px;
   /* Height of each parameter square */
   background-color: red;
   /* Background color for each parameter */
@@ -191,16 +219,16 @@ body {
   border: 3px solid black;
   /* Border for each parameter */
   display: flex;
-justify-content: center;
-/* Center content horizontally */
-align-items: center;
-/* Center content vertically */
+  justify-content: center;
+  /* Center content horizontally */
+  align-items: center;
+  /* Center content vertically */
   box-sizing: border-box;
   /* Ensure padding/border are included in width/height */
 }
 
 .parameterTitle {
-  width: 100px;
+  width: 110px;
   /* Width of each parameter square */
   height: 30px;
   /* Height of each parameter square */
