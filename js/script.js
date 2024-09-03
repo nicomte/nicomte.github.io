@@ -421,11 +421,24 @@ const villagerList = [{ "Name": "Ace", "Species": "Bird", "Gender": "Male", "Per
 
 document.addEventListener('DOMContentLoaded', function () {
     const guessInput = document.getElementById('guessInput');
+    
     if (guessInput) {
         guessInput.addEventListener('keydown', function (event) {
             if (event.key === 'Enter') {
                 event.preventDefault(); // Prevent the default form submission behavior
-                checkGuess(); // Call your function
+                
+                // Get the topmost villagerPreview div
+                const topmostPreviewDiv = document.querySelector('.villagerPreviewBox .villagerPreview');
+                
+                if (topmostPreviewDiv) {
+                    // Assuming the villager's name is stored as text content or in an attribute
+                    const villagerName = topmostPreviewDiv.textContent.trim(); // Or use another method to extract the name
+
+                    // Call checkGuess with the villager's name
+                    checkGuess(villagerName);
+                } else {
+                    console.log("No villager preview available.");
+                }
             }
         });
     }
