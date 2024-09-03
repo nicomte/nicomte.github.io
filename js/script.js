@@ -428,14 +428,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 event.preventDefault(); // Prevent the default form submission behavior
                 
                 // Get the topmost villagerPreview div
-                const topmostPreviewDiv = document.querySelector('.villagerPreviewBox .villagerPreview');
+                const topmostPreviewDiv = document.querySelector('.previewName');
                 
                 if (topmostPreviewDiv) {
                     // Assuming the villager's name is stored as text content or in an attribute
                     const villagerName = topmostPreviewDiv.textContent.trim(); // Or use another method to extract the name
 
+                    guessInput.value = villagerName;
+
                     // Call checkGuess with the villager's name
-                    checkGuess(villagerName);
+                    checkGuess();
                 } else {
                     console.log("No villager preview available.");
                 }
@@ -629,6 +631,7 @@ function showPreview() {
         img.alt = `Character from Nintendos Animal Crossing game series named ${villager.Name}`;
 
         const nameLink = document.createElement('a');
+        nameLink.className='previewName';
         nameLink.textContent = villager.Name;
 
         previewDiv.addEventListener('click', function () {
