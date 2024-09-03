@@ -172,7 +172,9 @@ body {
   border: 3px solid black;
   /* Border for each parameter */
   display: flex;
-  text-align: center;
+  justify-content: center;
+  /* Center content horizontally */
+  align-items: center;
   /* Center content vertically */
   box-sizing: border-box;
   /* Ensure padding/border are included in width/height */
@@ -189,7 +191,10 @@ body {
   border: 3px solid black;
   /* Border for each parameter */
   display: flex;
-text-align: center;
+justify-content: center;
+/* Center content horizontally */
+align-items: center;
+/* Center content vertically */
   box-sizing: border-box;
   /* Ensure padding/border are included in width/height */
 }
