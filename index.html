@@ -1,88 +1,15 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>ACdle</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-
+    <title>Project Hub</title>
+    <link rel="stylesheet" href="css/stylesIndex.css">
 </head>
-<script src="js/script.js"></script>
-
-<body onload="resetGameStatus(); setGameStatus(); fetchVillagerPNGs();">
-    <main class="aufteilung">
-        <section class="sideboard-left">
-            <div class="info">
-                <img id="infoIcon" onmouseover="toggleInfo(true)" onmouseout="toggleInfo(false)" src="img/info.png" alt="Exclamation mark that signals information">
-                <div id="infoBox">Not affiliated with Nintendo. Characters and
-                    background-textures are property of
-                    Nintendo. <br>
-                    Thanks to the people of Nookipedia.com for letting me use their API.
-                </div>
-            </div>
-        </section>
-        <section class="layout">
-            <section class="introduction">
-                <div id="instructions">
-                    <p>Welcome to ACdle, where you can test your Villager-Knowledge! Can you guess the Villager?</p>
-                    <p>Click on the start button to begin or press it again to start a new game.</p>
-                </div>
-            </section>
-
-            <section class="controlCenter">
-                <div onclick="startGame(); setGameStatus()" class="figure">
-                    <div id="startButton">
-                        Start
-                    </div>
-                </div>
-
-                <div class="gameStatus">
-                    <a>Game Status:</a><br>
-                    <a class="gameStatus" id="gameStatus"></a>
-                </div>
-            </section>
-
-            <section class="eingabebereich">
-
-                <div>
-                    <form>
-                        <input type="text" name="guessInput" id="guessInput" required oninput="showPreview()">
-                    </form>
-                    <div class="villagerPreviewBox"></div>
-                </div>
-
-                <div><button type="button" onclick="checkGuess()">&gt;&gt;Guess&lt;&lt;</button></div>
-
-            </section>
-            <section class="messages">
-                <a id="errorGuess"></a>
-                <div id="message">
-                    <a id="victoryMessage">You won! Click on Start for a new game.</a>
-                </div>
-            </section>
-            <section>
-                <div class="guessTitle">
-                    <div class="parameterTitle">Name</div>
-                    <div class="parameterTitle">Species</div>
-                    <div class="parameterTitle">Gender</div>
-                    <div class="parameterTitle">Personality</div>
-                </div>
-            </section>
-            <section class="guesses" id="guesses">
-                <!--
-                <div class="guess">
-                    <div class="parameter" id="bezeichnung">test</div>
-                    <div class="parameter" id="species">test</div>
-                    <div class="parameter" id="gender">test</div>
-                    <div class="parameter" id="personality">test</div>
-                </div>
-                -->
-            </section>
-        </section>
-        <section class="sideboard-right"></section>
-    </main>
+<body>
+    <div class="grid-container">
+        <a href="gamePages/project1/index.html" class="grid-item">Project 1</a>
+        <a href="gamePages/project2/index.html" class="grid-item">Project 2</a>
+    </div>
 </body>
-
 </html>
