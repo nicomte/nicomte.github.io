@@ -661,7 +661,7 @@ function toggleInfo(show) {
 function toggleSelectForm(){
     const selectForm = document.getElementById('selectForm');
     if(gameStatus == 1){
-        selectForm.style.display = "block"
+        selectForm.style.display = "flex"
     } else{
         selectForm.style.display = "none"
     }
