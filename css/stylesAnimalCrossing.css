@@ -10,7 +10,7 @@ div {
 }
 
 body {
-  background-image: url('../img/background.png');
+  background-image: url('../img/ACdle/background.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -104,7 +104,7 @@ cursor: pointer;
 }
 #infoBox{
   background-color: #1EDCB7;
-  border-image: url(../img/stripedBorder.png);
+  border-image: url(../img/ACdle/stripedBorder.png);
   border-style: solid;
   border-width: 10px;
   border-image-slice: 58;
@@ -251,12 +251,12 @@ cursor: pointer;
 
 #errorGuess {
   color: red;
-  background: url(../img/textboxv2.png);
+  background: url(../img/ACdle/textboxv2.png);
   font-size: 20px;
   padding: 10px;
   border-style: solid;
   border-width: 10px;
-  border-image-source: url(../img/stripedBorder.png);
+  border-image-source: url(../img/ACdle/stripedBorder.png);
   border-image-slice: 58;
   /* Adjust this value based on your image to avoid distortion */
   border-image-repeat: repeat;
@@ -274,7 +274,7 @@ cursor: pointer;
   background-repeat: no-repeat;
   background-size: cover;
   display: none;
-  background-image: url(../img/victory.png);
+  background-image: url(../img/ACdle/victory.png);
   border-radius: 50px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   /* Subtle shadow for emphasis */
@@ -322,13 +322,13 @@ div.gameStatus {
 
 
 #instructions {
-  background: url(../img/textboxv2.png);
+  background: url(../img/ACdle/textboxv2.png);
   color: white;
   font-size: 20px;
   padding: 10px;
   border-style: solid;
   border-width: 10px;
-  border-image-source: url(../img/stripedBorder.png);
+  border-image-source: url(../img/ACdle/stripedBorder.png);
   border-image-slice: 42;
   /* Adjust this value based on your image to avoid distortion */
   border-image-repeat: repeat;

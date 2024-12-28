@@ -626,7 +626,7 @@ function showPreview() {
         if (villagerData) {
             img.src = villagerData.imageUrl;
         } else {
-            img.src = 'img/default';
+            img.src = 'img/ACdle/default';
         }
 
         img.alt = `Character from Nintendos Animal Crossing game series named ${villager.Name}`;
