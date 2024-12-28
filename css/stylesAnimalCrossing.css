@@ -83,6 +83,10 @@ body {
       #00A69C 40px);
 }
 
+#selectForm{
+  display: none;
+}
+
 .aufteilung{
   display: flex;
   flex-direction: row;
