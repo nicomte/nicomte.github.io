@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 
 </head>
-<script src="../js/script.js"></script>
+<script src="../js/scriptACdle.js"></script>
 
 <body onload="resetGameStatus(); setGameStatus(); fetchVillagerPNGs();">
     <main class="aufteilung">
@@ -32,7 +32,7 @@
             </section>
 
             <section class="controlCenter">
-                <div onclick="startGame(); setGameStatus()" class="figure">
+                <div onclick="startGame(); setGameStatus(); toggleSelectForm()"  class="figure">
                     <div id="startButton">
                         Start
                     </div>
@@ -46,7 +46,7 @@
 
             <section class="eingabebereich">
 
-                <div>
+                <div id="selectForm">
                     <form>
                         <input type="text" name="guessInput" id="guessInput" required oninput="showPreview()">
                     </form>
