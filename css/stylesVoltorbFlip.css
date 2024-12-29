@@ -1,65 +1,86 @@
-#gameArea{
-    display: grid;
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #00a865;
+}
+
+#cardAreaWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#cardArea {
+    display: grid;
     grid-template-columns: repeat(6, auto);
     grid-template-rows: repeat(6, auto);
     width: 100%;
+    max-width: 550px;
+    aspect-ratio: 1 / 1;
     gap: 10px;
 }
 
-.cardBackground{
-    display: grid;
+.cardBackground {
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 105px;
-    height: 105px;
+    width: 100%;
+    aspect-ratio: 1/1;
     background-color: white;
     border-radius: 5px;
 }
 
-.card{
+.card {
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: url("../img/VoltorbFlip/tileBackground.png");
     background-size: cover;
     background-position: center;
-    width: 90px;
-    height: 90px;
+    width: 90%;
+    aspect-ratio: 1/1;
     border: 2px solid black;
     box-sizing: border-box;
 }
 
-.rowInfo, .columnInfo{
+.rowInfo,
+.columnInfo {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90px;
-    height: 90px;
+    width: 90%;
+    aspect-ratio: 1/1;
+
 }
 
-#rowInfoRed, #columnInfoRed{
+#rowInfoRed,
+#columnInfoRed {
     background-color: #f86a47;
 }
-#rowInfoGreen, #columnInfoGreen{
+
+#rowInfoGreen,
+#columnInfoGreen {
     background-color: #00b02d;
 }
-#rowInfoYellow, #columnInfoYellow{
+
+#rowInfoYellow,
+#columnInfoYellow {
     background-color: #fca100;
 }
-#rowInfoBlue, #columnInfoBlue{
+
+#rowInfoBlue,
+#columnInfoBlue {
     background-color: #0097ff;
 }
-#rowInfoPurple, #columnInfoPurple{
-    background-color: #d55cee;
-}
 
-body{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #00a865;
+#rowInfoPurple,
+#columnInfoPurple {
+    background-color: #d55cee;
 }

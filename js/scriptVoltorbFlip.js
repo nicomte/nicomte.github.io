@@ -1,6 +1,6 @@
 function createCardLayout() {
     const colorScheme = ["Red", "Green", "Yellow", "Blue", "Purple"];
-    const gameArea = document.getElementById("gameArea");
+    const cardArea = document.getElementById("cardArea");
     var infoBoxColorIndex = 0;
 
     for (let i = 0; i < 5; i++) {
@@ -13,7 +13,7 @@ function createCardLayout() {
             card.id = i;
 
             cardBackground.appendChild(card);
-            gameArea.appendChild(cardBackground);
+            cardArea.appendChild(cardBackground);
         }
 
         const rowInfoBackground = document.createElement("div");
@@ -25,7 +25,7 @@ function createCardLayout() {
         infoBoxColorIndex++;
 
         rowInfoBackground.appendChild(rowInfo);
-        gameArea.appendChild(rowInfoBackground);
+        cardArea.appendChild(rowInfoBackground);
 
     }
     
@@ -41,6 +41,6 @@ function createCardLayout() {
         infoBoxColorIndex++;
 
         columnInfoBackground.appendChild(columnInfo);
-        gameArea.appendChild(columnInfoBackground);
+        cardArea.appendChild(columnInfoBackground);
     }
 }
