@@ -1,0 +1,65 @@
+#gameArea{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: repeat(6, auto);
+    width: 100%;
+    gap: 10px;
+}
+
+.cardBackground{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 105px;
+    height: 105px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/VoltorbFlip/tileBackground.png");
+    background-size: cover;
+    background-position: center;
+    width: 90px;
+    height: 90px;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.rowInfo, .columnInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+}
+
+#rowInfoRed, #columnInfoRed{
+    background-color: #f86a47;
+}
+#rowInfoGreen, #columnInfoGreen{
+    background-color: #00b02d;
+}
+#rowInfoYellow, #columnInfoYellow{
+    background-color: #fca100;
+}
+#rowInfoBlue, #columnInfoBlue{
+    background-color: #0097ff;
+}
+#rowInfoPurple, #columnInfoPurple{
+    background-color: #d55cee;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00a865;
+}
