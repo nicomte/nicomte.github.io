@@ -1,7 +1,4 @@
 function createCardLayout() {
-    //Support variables for row/column info
-    const colorScheme = ["Red", "Green", "Yellow", "Blue", "Purple"];
-    var infoBoxColorIndex = 0;
 
     //Get id of div where cards are placed
     const cardArea = document.getElementById("cardArea");
@@ -21,33 +18,63 @@ function createCardLayout() {
             cardBackground.appendChild(card);
             cardArea.appendChild(cardBackground);
         }
-
-        const rowInfoBackground = document.createElement("div");
-        rowInfoBackground.className = "cardBackground";
-
-        const rowInfo = document.createElement("div");
-        rowInfo.className = "rowInfo";
-        rowInfo.id = "rowInfo" + colorScheme[infoBoxColorIndex];
-        infoBoxColorIndex++;
-
-        rowInfoBackground.appendChild(rowInfo);
-        cardArea.appendChild(rowInfoBackground);
-
+        createInfoBox("Row", i, cardArea);
     }
-
-    infoBoxColorIndex = 0;
 
     //Create additional 6th row with column info tiles
     for (let i = 0; i < 5; i++) {
-        const columnInfoBackground = document.createElement("div");
-        columnInfoBackground.className = "cardBackground";
-
-        const columnInfo = document.createElement("div");
-        columnInfo.className = "columnInfo";
-        columnInfo.id = "columnInfo" + colorScheme[infoBoxColorIndex];
-        infoBoxColorIndex++;
-
-        columnInfoBackground.appendChild(columnInfo);
-        cardArea.appendChild(columnInfoBackground);
+        createInfoBox("Column", i, cardArea);
     }
+}
+
+function createInfoBox(rowOrColumn, index, container) {
+
+    //Support variables for row/column info
+    const colorScheme = ["Red", "Green", "Yellow", "Blue", "Purple"];
+
+    //Create div background for columnInfo
+    const infoBoxBackground = document.createElement("div");
+    infoBoxBackground.className = "cardBackground";
+
+    //Create div columnInfo
+    const infoBox = document.createElement("div");
+    infoBox.className = "infoBox";
+    infoBox.id = "infoBox" + rowOrColumn + colorScheme[index];
+
+    //Create div for coinSum
+    const coinSumContainer = document.createElement("div");
+    coinSumContainer.className = "coinSumContainer";
+
+    //Create span for coinSum, append to columnInfo
+    const coinSum = document.createElement("span");
+    coinSum.className = "coinSum";
+    coinSum.id = "coinSum" + rowOrColumn + colorScheme[index];
+    coinSum.innerText = 0;
+
+    coinSumContainer.appendChild(coinSum);
+    infoBox.appendChild(coinSumContainer);
+
+    //Create div for voltorbSum
+    const voltorbSumContainer = document.createElement("div");
+    voltorbSumContainer.className = "voltorbSumContainer";
+
+    //Create and append img for voltorb icon
+    const voltorbIcon = document.createElement("img");
+    voltorbIcon.className = "voltorbIcon";
+    voltorbIcon.src = "../img/VoltorbFlip/voltorb.png";
+    voltorbSumContainer.appendChild(voltorbIcon);
+
+    //Create span for voltorbSum, append to voltorbSumContainer
+    const voltorbSum = document.createElement("span");
+    voltorbSum.className = "voltorbSum";
+    voltorbSum.id = "voltorbSum" + rowOrColumn + colorScheme[index];
+    voltorbSum.innerText = 0;
+    voltorbSumContainer.appendChild(voltorbSum);
+
+    //Append voltorbSumContainer to columnInfo
+    infoBox.appendChild(voltorbSumContainer);
+
+    //Append columnInfo to background, append card to cardArea
+    infoBoxBackground.appendChild(infoBox);
+    container.appendChild(infoBoxBackground);
 }
