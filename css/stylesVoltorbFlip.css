@@ -20,7 +20,6 @@ body {
 #cardArea {
     display: grid;
     grid-template-columns: repeat(6, auto);
-    grid-template-rows: repeat(6, auto);
     width: 100%;
     max-width: 550px;
     aspect-ratio: 1 / 1;
@@ -57,7 +56,6 @@ body {
     align-items: center;
     width: 90%;
     aspect-ratio: 1/1;
-
 }
 
 #rowInfoRed,
