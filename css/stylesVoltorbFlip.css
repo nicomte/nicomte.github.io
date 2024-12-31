@@ -86,6 +86,7 @@ body {
 
 .coinSumContainer {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
     border-bottom: 5px solid white;
     width: 100%;
@@ -93,8 +94,8 @@ body {
 }
 
 .coinSum {
-    height: 50%;
     padding-right: 3px;
+    font-size: 100%;
 }
 
 .voltorbSumContainer {
@@ -112,7 +113,7 @@ body {
 }
 
 .voltorbIcon {
-    width: 55%;
+    width: 50%;
     aspect-ratio: 1/1;
-    padding: 3%;
+    padding-left: 3px;
 }
