@@ -21,6 +21,7 @@ body {
     display: grid;
     grid-template-columns: repeat(11, auto);
     align-items: center;
+    justify-items: center;
     width: 100%;
     max-width: 600px;
     aspect-ratio: 1 / 1;
@@ -50,7 +51,7 @@ body {
     box-sizing: border-box;
 }
 
-.coloredLineBackground{
+.coloredLineBackgroundHorizontal{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +61,7 @@ body {
 }
 
 .coloredLineHorizontal{
-    min-width: 20px;
+    min-width: 15px;
     height: 60%;
 }
 
@@ -81,6 +82,40 @@ body {
 }
 
 #coloredLineHorizontalPurple{
+    background-color: #d55cee;
+}
+
+.coloredLineBackgroundVertical{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+    background-color: white;
+}
+
+.coloredLineVertical {
+    min-height: 15px;
+    width: 60%;
+}
+
+#coloredLineVerticalRed{
+    background-color: #f86a47;
+}
+
+#coloredLineVerticalGreen{
+    background-color: #00b02d;
+}
+
+#coloredLineVerticalYellow{
+    background-color: #fca100;
+}
+
+#coloredLineVerticalBlue{
+    background-color: #0097ff;
+}
+
+#coloredLineVerticalPurple{
     background-color: #d55cee;
 }
 

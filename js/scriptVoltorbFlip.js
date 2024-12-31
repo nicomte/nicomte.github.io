@@ -14,11 +14,38 @@ function createCardLayout() {
             createCardRow(i, j, cardArea, colorScheme);
         }
         createInfoBox("Row", i, cardArea, colorScheme);
+
+        for (let k = 0; k < 5; k++) {
+            createColoredLineVertical(k, cardArea, colorScheme);
+        }
+
+
     }
 
     //Create additional 6th row with column info tiles
     for (let i = 0; i < 5; i++) {
         createInfoBox("Column", i, cardArea, colorScheme);
+    }
+}
+
+function createColoredLineVertical(index, container, colorScheme) {
+    const coloredLineBackground = document.createElement("div");
+    coloredLineBackground.className = "coloredLineBackgroundVertical";
+
+    const coloredLine = document.createElement("div");
+    coloredLine.className = "coloredLineVertical"
+    coloredLine.id = "coloredLineVertical" + colorScheme[index];
+
+    coloredLineBackground.appendChild(coloredLine);
+    container.appendChild(coloredLineBackground);
+
+    const spacer = document.createElement("div");
+    spacer.className = "spacer";
+    container.appendChild(spacer);
+    if (index == 4) {
+        const spacer = document.createElement("div");
+        spacer.className = "spacer";
+        container.appendChild(spacer);
     }
 }
 
@@ -35,12 +62,12 @@ function createCardRow(rowIndex, columnIndex, container, colorScheme) {
     container.appendChild(cardBackground);
 
     const coloredLineBackground = document.createElement("div");
-    coloredLineBackground.className = "coloredLineBackground";
+    coloredLineBackground.className = "coloredLineBackgroundHorizontal";
 
     const coloredLine = document.createElement("div");
     coloredLine.className = "coloredLineHorizontal"
     coloredLine.id = "coloredLineHorizontal" + colorScheme[rowIndex];
-    
+
     coloredLineBackground.appendChild(coloredLine);
     container.appendChild(coloredLineBackground);
 }
@@ -93,7 +120,7 @@ function createInfoBox(rowOrColumn, index, container, colorScheme) {
     infoBoxBackground.appendChild(infoBox);
     container.appendChild(infoBoxBackground);
 
-    if(rowOrColumn === "Column"){
+    if (rowOrColumn === "Column") {
         const coloredLineBackground = document.createElement("div");
         coloredLineBackground.className = "coloredLineBackgroundInfoBox";
 
