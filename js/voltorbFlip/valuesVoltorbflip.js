@@ -5,16 +5,16 @@ const assignedIndices = new Set();
 function assignValuesToLayout() {
     option = selectOption();
 
-    console.log(option);
+    // console.log(option);
 
     fillLayout("x2", option);
-    console.log(valuesCardLayout);
+    // console.log(valuesCardLayout);
 
     fillLayout("x3", option);
-    console.log(valuesCardLayout);
+    // console.log(valuesCardLayout);
 
     fillLayout("voltorb", option);
-    console.log(valuesCardLayout);
+    // console.log(valuesCardLayout);
 
     for (let i = 0; i < valuesCardLayout.length; i++) {
         if (valuesCardLayout[i] === 0){
@@ -26,7 +26,7 @@ function assignValuesToLayout() {
 
 function fillLayout(valueType, option) {
     const count = option[valueType];
-    console.log(count);
+    // console.log(count);
     let assignedCount = 0;
 
     while (assignedCount < count) {
