@@ -1,0 +1,104 @@
+let currentLevel = 0;
+const valuesCardLayout = Array(25).fill(0);
+const assignedIndices = new Set();
+
+function assignValuesToLayout() {
+    option = selectOption();
+
+    console.log(option);
+
+    fillLayout("x2", option);
+    console.log(valuesCardLayout);
+
+    fillLayout("x3", option);
+    console.log(valuesCardLayout);
+
+    fillLayout("voltorb", option);
+    console.log(valuesCardLayout);
+
+    for (let i = 0; i < valuesCardLayout.length; i++) {
+        if (valuesCardLayout[i] === 0){
+            valuesCardLayout[i] = "x1";
+        }
+    }
+
+}
+
+function fillLayout(valueType, option) {
+    const count = option[valueType];
+    console.log(count);
+    let assignedCount = 0;
+
+    while (assignedCount < count) {
+        let cardToAssignValue = getRandomIntInclusive(0, 24);
+        if (!assignedIndices.has(cardToAssignValue)) {
+            assignedIndices.add(cardToAssignValue);
+            valuesCardLayout[cardToAssignValue] = valueType;
+            assignedCount++;
+        }
+    }
+}
+
+
+function selectOption() {
+    randomSelection = getRandomIntInclusive(0, 4);
+    return lvlOptions[currentLevel][randomSelection];
+}
+
+function getRandomIntInclusive(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+}
+
+
+const lvlOptions = [
+    [{ x2: 3, x3: 1, voltorb: 6 },
+    { x2: 0, x3: 3, voltorb: 6 },
+    { x2: 5, x3: 0, voltorb: 6 },
+    { x2: 2, x3: 2, voltorb: 6 },
+    { x2: 4, x3: 1, voltorb: 6 }
+    ],
+    [{ x2: 1, x3: 3, voltorb: 7 },
+    { x2: 6, x3: 0, voltorb: 7 },
+    { x2: 3, x3: 2, voltorb: 7 },
+    { x2: 0, x3: 4, voltorb: 7 },
+    { x2: 5, x3: 1, voltorb: 7 },
+    ],
+    [{ x2: 2, x3: 3, voltorb: 8 },
+    { x2: 7, x3: 0, voltorb: 8 },
+    { x2: 4, x3: 2, voltorb: 8 },
+    { x2: 1, x3: 4, voltorb: 8 },
+    { x2: 6, x3: 1, voltorb: 8 },
+    ],
+    [{ x2: 3, x3: 3, voltorb: 8 },
+    { x2: 0, x3: 5, voltorb: 8 },
+    { x2: 8, x3: 0, voltorb: 10 },
+    { x2: 5, x3: 2, voltorb: 10 },
+    { x2: 2, x3: 4, voltorb: 10 },
+    ],
+    [{ x2: 7, x3: 1, voltorb: 10 },
+    { x2: 4, x3: 3, voltorb: 10 },
+    { x2: 1, x3: 5, voltorb: 10 },
+    { x2: 9, x3: 0, voltorb: 10 },
+    { x2: 6, x3: 2, voltorb: 10 },
+    ],
+    [{ x2: 3, x3: 4, voltorb: 10 },
+    { x2: 0, x3: 6, voltorb: 10 },
+    { x2: 8, x3: 1, voltorb: 10 },
+    { x2: 5, x3: 3, voltorb: 10 },
+    { x2: 2, x3: 5, voltorb: 10 },
+    ],
+    [{ x2: 7, x3: 2, voltorb: 10 },
+    { x2: 4, x3: 4, voltorb: 10 },
+    { x2: 1, x3: 6, voltorb: 13 },
+    { x2: 9, x3: 1, voltorb: 13 },
+    { x2: 6, x3: 3, voltorb: 10 },
+    ],
+    [{ x2: 0, x3: 7, voltorb: 10 },
+    { x2: 8, x3: 2, voltorb: 10 },
+    { x2: 5, x3: 4, voltorb: 10 },
+    { x2: 2, x3: 6, voltorb: 10 },
+    { x2: 7, x3: 3, voltorb: 10 },
+    ]
+];
