@@ -17,12 +17,54 @@ function assignValuesToLayout() {
     // console.log(valuesCardLayout);
 
     for (let i = 0; i < valuesCardLayout.length; i++) {
-        if (valuesCardLayout[i] === 0){
+        if (valuesCardLayout[i] === 0) {
             valuesCardLayout[i] = "x1";
         }
     }
 
+    countValues("row");
+    countValues("column");
+
 }
+
+function countValues(type) {
+    for (let i = 0; i < 5; i++) {
+        let coinValue = 0;
+        let voltorb = 0;
+
+        let coinSumElement, voltorbSumElement;
+        if (type === "row") {
+            coinSumElement = document.getElementById("coinSumRow" + colorScheme[i]);
+            voltorbSumElement = document.getElementById("voltorbSumRow" + colorScheme[i]);
+        } else if (type === "column") {
+            coinSumElement = document.getElementById("coinSumColumn" + colorScheme[i]);
+            voltorbSumElement = document.getElementById("voltorbSumColumn" + colorScheme[i]);
+        }
+
+
+        for (let j = 0; j < 5; j++) {
+            const index = type === "row" ? i * 5 + j : i + 5 * j;
+            switch (valuesCardLayout[index]) {
+                case "x1":
+                    coinValue++;
+                    break;
+                case "x2":
+                    coinValue += 2;
+                    break;
+                case "x3":
+                    coinValue += 3;
+                    break;
+                case "voltorb":
+                    voltorb++;
+                    break;
+            }
+        }
+
+        coinSumElement.innerText = coinValue;
+        voltorbSumElement.innerText = voltorb;
+    }
+}
+
 
 function fillLayout(valueType, option) {
     const count = option[valueType];
