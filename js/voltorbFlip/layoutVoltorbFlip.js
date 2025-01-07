@@ -3,6 +3,8 @@ const colorScheme = ["Red", "Green", "Yellow", "Blue", "Purple"];
 
 function createCardLayout() {
 
+    clearLayout();
+
     //Get id of div where cards are placed
     const cardArea = document.getElementById("cardArea");
 
@@ -18,8 +20,6 @@ function createCardLayout() {
         for (let k = 0; k < 5; k++) {
             createColoredLineVertical(k, cardArea, colorScheme);
         }
-
-
     }
 
     //Create additional 6th row with column info tiles
@@ -57,6 +57,13 @@ function createCardRow(rowIndex, columnIndex, container, colorScheme) {
     const card = document.createElement("div");
     card.className = "card";
     card.id = rowIndex * 5 + columnIndex;
+    card.addEventListener('click', function () {
+        if (!card.classList.contains('clicked')) {
+            flipCard(card, valuesCardLayout);
+
+            card.classList.add('clicked');
+        }
+    });
 
     cardBackground.appendChild(card);
     container.appendChild(cardBackground);
@@ -132,4 +139,8 @@ function createInfoBox(rowOrColumn, index, container, colorScheme) {
         container.appendChild(coloredLineBackground);
     }
 
+}
+
+function clearLayout(){
+    document.getElementById('cardArea').innerHTML = "";
 }

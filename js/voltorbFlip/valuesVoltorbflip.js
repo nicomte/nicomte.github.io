@@ -1,20 +1,22 @@
 let currentLevel = 0;
-const valuesCardLayout = Array(25).fill(0);
+const valuesCardLayout = Array(25);
 const assignedIndices = new Set();
+const numberOfX2X3 = Array(2);
 
 function assignValuesToLayout() {
+    resetValues();
+
     option = selectOption();
 
-    // console.log(option);
+    numberOfX2X3[0] = option["x2"];
+    numberOfX2X3[1] = option["x3"];
 
     fillLayout("x2", option);
-    // console.log(valuesCardLayout);
+
 
     fillLayout("x3", option);
-    // console.log(valuesCardLayout);
 
     fillLayout("voltorb", option);
-    // console.log(valuesCardLayout);
 
     for (let i = 0; i < valuesCardLayout.length; i++) {
         if (valuesCardLayout[i] === 0) {
@@ -93,6 +95,10 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
 }
 
+function resetValues(){
+    valuesCardLayout.fill(0);
+    assignedIndices.clear();
+}
 
 const lvlOptions = [
     [{ x2: 3, x3: 1, voltorb: 6 },
