@@ -25,41 +25,48 @@ function failGame() {
 }
 
 function displayOverlay(result) {
-    if(result === "loss"){
-        document.body.innerHTML += '<div id="overlay" class="overlay"><div id="popup" class="popup"><h2>Game Over</h2><p>You lost the game. Try again!</p><button id="closeButton">Close</button></div></div>';
-        document.getElementById('closeButton').addEventListener('click', closeOverlay);
-    } else if (result === "win"){
-        document.body.innerHTML += '<div id="overlay" class="overlay"><div id="popup" class="popup"><h2>You won!</h2><p>You found all x2 and x3. Good Luck in the next Level!</p><button id="closeButton">Close</button></div></div>';
-        document.getElementById('closeButton').addEventListener('click', closeOverlay);
+    document.getElementById('cardArea').innerHTML += '<div id="overlay" class="overlay"></div>';
+
+    if (result === "loss") {
+        writeToTextbox("Voltorb!!! You lose all gathered points!", "Click to continue");
+    } else if (result === "win") {
+        writeToTextbox("Congrats! You found all x2 and x3!", "Click to continue to the next level!");
     }
+
+    document.body.addEventListener('click', closeOverlay, {capture: true});
 }
 
-function closeOverlay() {
-    document.getElementById('overlay').remove();
 
+function closeOverlay() {
+    document.body.removeEventListener('click', closeOverlay, {capture: true});
+    document.getElementById('overlay').remove();
+    writeToTextbox(" ", " ");
     createCardLayout();
     assignValuesToLayout();
 }
 
-function checkWinOrLoss(value, numberOfX2X3){
-    switch(value){
+function checkWinOrLoss(value, numberOfX2X3) {
+    switch (value) {
         case "x2":
             numberOfX2X3[0]--;
+            writeToTextbox("Found an x2!", "")
             break;
         case "x3":
             numberOfX2X3[1]--;
+            writeToTextbox("Found an x3!", "")
             break;
         case "voltorb":
             failGame();
             break;
     }
 
-    if(numberOfX2X3[0] === 0 && numberOfX2X3[1] === 0){
+    if (numberOfX2X3[0] === 0 && numberOfX2X3[1] === 0) {
         nextLevel();
     }
 }
 
-function nextLevel(){
+function nextLevel() {
     currentLevel++;
     displayOverlay("win");
 }
+
