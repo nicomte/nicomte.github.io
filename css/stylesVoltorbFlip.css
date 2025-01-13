@@ -8,6 +8,35 @@ body {
     background-color: #00a865;
 }
 
+#gameArea{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#levelInterfaceArea{
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding-right: 3%;
+}
+
+.levelBox {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    white-space: nowrap;
+    padding: 5%;
+    margin-bottom: 5%;
+    width: 100%;
+    border: solid clamp(2px, 0.5vw, 5px) rgb(14, 14, 88);
+    border-radius: 5px;
+}
+#lvl1{
+    background-color: gold;
+}
+
 #cardAreaWrapper {
     display: flex;
     flex-direction: column;

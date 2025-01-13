@@ -19,18 +19,22 @@ function changeIcon(element, value) {
     }
 }
 
-function failGame() {
-    currentLevel = 0;
-    displayOverlay("loss");
-}
-
 function displayOverlay(result) {
     document.getElementById('cardArea').innerHTML += '<div id="overlay" class="overlay"></div>';
 
     if (result === "loss") {
-        writeToTextbox("Voltorb!!! You lose all gathered points!", "Click to continue");
+        document.getElementById('lvl'+ parseInt(currentLevel+1)).style.backgroundColor = "white";
+        currentLevel = 0;
+        writeToTextbox("Voltorb!!! You lose all gathered points!", "Click anywhere to retry");
     } else if (result === "win") {
-        writeToTextbox("Congrats! You found all x2 and x3!", "Click to continue to the next level!");
+
+        if(currentLevel === 7 ){
+            writeToTextbox("Wow, incredible! You beat every level!", "Click anywhere to restart!");
+            currentLevel = 0;
+        }else {
+            currentLevel++;
+            writeToTextbox("Congrats! You found all x2 and x3!", "Click anywhere to continue to the next level!");
+        }
     }
 
     document.body.addEventListener('click', closeOverlay, {capture: true});
@@ -43,6 +47,12 @@ function closeOverlay() {
     writeToTextbox(" ", " ");
     createCardLayout();
     assignValuesToLayout();
+    updateLevelHighlighter(currentLevel);
+}
+
+function updateLevelHighlighter(currentLevel){
+    document.getElementById('lvl'+ parseInt(currentLevel+1)).style.backgroundColor = "gold";
+    document.getElementById('lvl'+ parseInt(currentLevel)).style.backgroundColor = "white";
 }
 
 function checkWinOrLoss(value, numberOfX2X3) {
@@ -56,17 +66,11 @@ function checkWinOrLoss(value, numberOfX2X3) {
             writeToTextbox("Found an x3!", "")
             break;
         case "voltorb":
-            failGame();
+            displayOverlay("loss");
             break;
     }
 
     if (numberOfX2X3[0] === 0 && numberOfX2X3[1] === 0) {
-        nextLevel();
+        displayOverlay("win");
     }
 }
-
-function nextLevel() {
-    currentLevel++;
-    displayOverlay("win");
-}
-
