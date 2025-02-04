@@ -89,9 +89,7 @@ body {
 }
 
 .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     background-image: url("../img/VoltorbFlip/tileBackground.png");
     background-size: cover;
     background-position: center;

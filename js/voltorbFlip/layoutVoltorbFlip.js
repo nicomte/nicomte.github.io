@@ -33,7 +33,7 @@ function createColoredLineVertical(index, container, colorScheme) {
     coloredLineBackground.className = "coloredLineBackgroundVertical";
 
     const coloredLine = document.createElement("div");
-    coloredLine.className = "coloredLineVertical"
+    coloredLine.className = "coloredLineVertical";
     coloredLine.id = "coloredLineVertical" + colorScheme[index];
 
     coloredLineBackground.appendChild(coloredLine);
@@ -72,7 +72,7 @@ function createCardRow(rowIndex, columnIndex, container, colorScheme) {
     coloredLineBackground.className = "coloredLineBackgroundHorizontal";
 
     const coloredLine = document.createElement("div");
-    coloredLine.className = "coloredLineHorizontal"
+    coloredLine.className = "coloredLineHorizontal";
     coloredLine.id = "coloredLineHorizontal" + colorScheme[rowIndex];
 
     coloredLineBackground.appendChild(coloredLine);
@@ -132,7 +132,7 @@ function createInfoBox(rowOrColumn, index, container, colorScheme) {
         coloredLineBackground.className = "coloredLineBackgroundInfoBox";
 
         const coloredLine = document.createElement("div");
-        coloredLine.className = "coloredLineHorizontal"
+        coloredLine.className = "coloredLineHorizontal";
         coloredLine.id = "coloredLineHorizontalInfoBox";
 
         coloredLineBackground.appendChild(coloredLine);
