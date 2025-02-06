@@ -1,50 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <title>Voltorb-Flip</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/stylesVoltorbFlip.css" />
+        <script src="../js/voltorbFlip/layoutVoltorbFlip.js"></script>
+        <script src="../js/voltorbFlip/valuesVoltorbflip.js"></script>
+        <script src="../js/voltorbFlip/playerLogicVoltorbFlip.js"></script>
+        <script src="../js/voltorbFlip/gameLogicVoltorbFlip.js"></script>
+    </head>
 
-<head>
-    <title>Voltorb-Flip</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/stylesVoltorbFlip.css">
-    <script src="../js/voltorbFlip/layoutVoltorbFlip.js"></script>
-    <script src="../js/voltorbFlip/valuesVoltorbflip.js"></script>
-    <script src="../js/voltorbFlip/playerLogicVoltorbFlip.js"></script>
-    <script src="../js/voltorbFlip/gameLogicVoltorbFlip.js"></script>
-</head>
-
-<body>
-    
-    <div id="gameArea">
-        <div id="levelInterfaceArea">
-            <div id="lvl8" class="levelBox">Level 8</div>
-            <div id="lvl7" class="levelBox">Level 7</div>
-            <div id="lvl6" class="levelBox">Level 6</div>
-            <div id="lvl5" class="levelBox">Level 5</div>
-            <div id="lvl4" class="levelBox">Level 4</div>
-            <div id="lvl3" class="levelBox">Level 3</div>
-            <div id="lvl2" class="levelBox">Level 2</div>
-            <div id="lvl1" class="levelBox">Level 1</div>
-        </div>
-        <div id="cardAreaWrapper">
-            <div id="scoreArea">
-                <div id="currentScoreContainer" class="scoreContainer">
-                    <span id="currentScoreText" class="scoreText">Score this Level:</span>
-                    <span id="currentScore" class="score">00000</span>
+    <body>
+        <div id="gameArea">
+            <div id="levelInterfaceArea">
+                <div id="lvl8" class="levelBox">Level 8</div>
+                <div id="lvl7" class="levelBox">Level 7</div>
+                <div id="lvl6" class="levelBox">Level 6</div>
+                <div id="lvl5" class="levelBox">Level 5</div>
+                <div id="lvl4" class="levelBox">Level 4</div>
+                <div id="lvl3" class="levelBox">Level 3</div>
+                <div id="lvl2" class="levelBox">Level 2</div>
+                <div id="lvl1" class="levelBox">Level 1</div>
+            </div>
+            <div id="cardAreaWrapper">
+                <div id="scoreArea">
+                    <div id="currentScoreContainer" class="scoreContainer">
+                        <span id="currentScoreText" class="scoreText">Score this Level:</span>
+                        <span id="currentScore" class="score">00000</span>
+                    </div>
+                    <div id="totalScoreContainer" class="scoreContainer">
+                        <span id="totalScoreText" class="scoreText">Total Score:</span>
+                        <span id="totalScore" class="score">00000</span>
+                    </div>
                 </div>
-                <div id="totalScoreContainer" class="scoreContainer">
-                    <span id="totalScoreText" class="scoreText">Total Score:</span>
-                    <span id="totalScore" class="score">00000</span>
+                <div id="cardArea"></div>
+                <div id="textbox">
+                    <p id="textboxLine1" class="textboxLine"></p>
+                    <p id="textboxLine2" class="textboxLine"></p>
                 </div>
             </div>
-            <div id="cardArea"></div>
-            <div id="textbox">
-                <p id="textboxLine1" class="textboxLine"></p>
-                <p id="textboxLine2" class="textboxLine"></p>
+
+            <div id="iconArea">
+                <div id="memoContainer">
+                    <div id="memoTextContainer">
+                        <span class="memoText">OPEN</span>
+                        <span class="memoText">MEMO</span>
+                    </div>
+                </div>
             </div>
         </div>
-        
-    </div>
-
-</body>
-
+    </body>
 </html>
