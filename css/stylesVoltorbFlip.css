@@ -2,11 +2,21 @@ body {
     height: 100vh;
     width: 100vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background-color: #00a865;
 }
+
+@media (max-width: 600px) { /* Adjust breakpoint as needed */
+    body {
+        flex-direction: column; /* Stack in a column */
+        align-items: center; /* Prevents large gap */
+        padding-top: 20px; /* Optional: Adds spacing at the top */
+    }
+}
+
 
 #gameArea {
     display: flex;
@@ -274,7 +284,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .scoreContainer {
@@ -293,12 +303,12 @@ body {
 .score {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: clamp(1vw, 2vw, 1.5rem);
+    font-size: 2vh;
 }
 .scoreText {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: clamp(1vw, 2vw, 1.5rem);
+    font-size: 2vh;
 }
 
 #iconArea {
@@ -306,7 +316,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 #memoContainer {
