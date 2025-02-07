@@ -1,17 +1,32 @@
+let noteMode = false;
+
+function toggleNoteMode() {
+    if (!noteMode) {
+        noteMode = true;
+        document.querySelectorAll(".cardBackground").forEach((element) => {
+            element.className = "cardBackgroundNoteMode";
+        });
+    } else {
+        noteMode = false;
+        document.querySelectorAll(".cardBackgroundNoteMode").forEach((element) => {
+            element.className = "cardBackground";
+        });
+    }
+    console.log(noteMode);
+}
+
 function flipCard(element, values) {
     value = values[element.id];
     changeIcon(element, value);
     checkWinOrLoss(value, numberOfX2X3);
-
 }
 
 function changeIcon(element, value) {
-
     const backgroundMap = {
-        "x1": "../img/VoltorbFlip/value1.png",
-        "x2": "../img/VoltorbFlip/value2.png",
-        "x3": "../img/VoltorbFlip/value3.png",
-        "voltorb": "../img/VoltorbFlip/valueVoltorb.png"
+        x1: "../img/VoltorbFlip/value1.png",
+        x2: "../img/VoltorbFlip/value2.png",
+        x3: "../img/VoltorbFlip/value3.png",
+        voltorb: "../img/VoltorbFlip/valueVoltorb.png"
     };
 
     if (backgroundMap[value]) {
@@ -20,14 +35,13 @@ function changeIcon(element, value) {
 }
 
 function displayOverlay(result) {
-    document.getElementById('cardArea').innerHTML += '<div id="overlay" class="overlay"></div>';
+    document.getElementById("cardArea").innerHTML += '<div id="overlay" class="overlay"></div>';
 
     if (result === "loss") {
-        document.getElementById('lvl' + parseInt(currentLevel + 1)).style.backgroundColor = "white";
+        document.getElementById("lvl" + parseInt(currentLevel + 1)).style.backgroundColor = "white";
         currentLevel = 0;
         writeToTextbox("Voltorb!!! You lose all gathered points!", "Click anywhere to retry");
     } else if (result === "win") {
-
         if (currentLevel === 7) {
             writeToTextbox("Wow, incredible! You beat every level!", "Click anywhere to restart!");
             currentLevel = 0;
@@ -37,13 +51,12 @@ function displayOverlay(result) {
         }
     }
 
-    document.body.addEventListener('click', closeOverlay, { capture: true });
+    document.body.addEventListener("click", closeOverlay, { capture: true });
 }
 
-
 function closeOverlay() {
-    document.body.removeEventListener('click', closeOverlay, { capture: true });
-    document.getElementById('overlay').remove();
+    document.body.removeEventListener("click", closeOverlay, { capture: true });
+    document.getElementById("overlay").remove();
     writeToTextbox(" ", " ");
     createCardLayout();
     assignValuesToLayout();
@@ -51,34 +64,34 @@ function closeOverlay() {
 }
 
 function updateLevelHighlighter(currentLevel) {
-    document.getElementById('lvl' + parseInt(currentLevel + 1)).style.backgroundColor = "gold";
-    document.getElementById('lvl' + parseInt(currentLevel)).style.backgroundColor = "white";
+    document.getElementById("lvl" + parseInt(currentLevel + 1)).style.backgroundColor = "gold";
+    document.getElementById("lvl" + parseInt(currentLevel)).style.backgroundColor = "white";
 }
 
 function checkWinOrLoss(value, numberOfX2X3) {
     switch (value) {
         case "x1":
             writeToTextbox("Found an x1!", "");
-            if (parseInt(document.getElementById('currentScore').innerText) === 0) {
+            if (parseInt(document.getElementById("currentScore").innerText) === 0) {
                 writeScore(1);
             }
             break;
         case "x2":
             numberOfX2X3[0]--;
             writeToTextbox("Found an x2!", "");
-            if (parseInt(document.getElementById('currentScore').innerText) === 0) {
-                writeScore(parseInt(document.getElementById('currentScore').innerText) + 2);
+            if (parseInt(document.getElementById("currentScore").innerText) === 0) {
+                writeScore(parseInt(document.getElementById("currentScore").innerText) + 2);
             } else {
-                writeScore(parseInt(document.getElementById('currentScore').innerText) * 2);
+                writeScore(parseInt(document.getElementById("currentScore").innerText) * 2);
             }
             break;
         case "x3":
             numberOfX2X3[1]--;
             writeToTextbox("Found an x3!", "");
-            if (parseInt(document.getElementById('currentScore').innerText) === 0) {
-                writeScore(parseInt(document.getElementById('currentScore').innerText) + 3);
+            if (parseInt(document.getElementById("currentScore").innerText) === 0) {
+                writeScore(parseInt(document.getElementById("currentScore").innerText) + 3);
             } else {
-                writeScore(parseInt(document.getElementById('currentScore').innerText) * 3);
+                writeScore(parseInt(document.getElementById("currentScore").innerText) * 3);
             }
             break;
         case "voltorb":
@@ -89,6 +102,10 @@ function checkWinOrLoss(value, numberOfX2X3) {
 
     if (numberOfX2X3[0] === 0 && numberOfX2X3[1] === 0) {
         displayOverlay("win");
-        writeScore(0, parseInt(document.getElementById('currentScore').innerText) + parseInt(document.getElementById('totalScore').innerText));
+        writeScore(
+            0,
+            parseInt(document.getElementById("currentScore").innerText) +
+                parseInt(document.getElementById("totalScore").innerText)
+        );
     }
 }

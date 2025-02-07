@@ -9,14 +9,14 @@ body {
     background-color: #00a865;
 }
 
-@media (max-width: 600px) { /* Adjust breakpoint as needed */
+@media (max-width: 600px) {
+    /* Adjust breakpoint as needed */
     body {
         flex-direction: column; /* Stack in a column */
         align-items: center; /* Prevents large gap */
         padding-top: 20px; /* Optional: Adds spacing at the top */
     }
 }
-
 
 #gameArea {
     display: flex;
@@ -90,6 +90,17 @@ body {
     width: 100%;
     aspect-ratio: 1/1;
     background-color: white;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.cardBackgroundNoteMode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: gold;
     box-sizing: border-box;
     border-radius: 5px;
 }
@@ -340,6 +351,9 @@ body {
     padding: 10px;
     border-radius: 5px;
     text-align: center;
+}
+#memoTextContainer:hover {
+    cursor: pointer;
 }
 
 .memoText {
