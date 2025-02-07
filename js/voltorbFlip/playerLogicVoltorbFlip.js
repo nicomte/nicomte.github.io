@@ -3,12 +3,12 @@ let noteMode = false;
 function toggleNoteMode() {
     if (!noteMode) {
         noteMode = true;
-        document.querySelectorAll(".cardBackground").forEach((element) => {
+        document.querySelectorAll(".cardBackground:has(.card)").forEach((element) => {
             element.className = "cardBackgroundNoteMode";
         });
     } else {
         noteMode = false;
-        document.querySelectorAll(".cardBackgroundNoteMode").forEach((element) => {
+        document.querySelectorAll(".cardBackgroundNoteMode:has(.card)").forEach((element) => {
             element.className = "cardBackground";
         });
     }
