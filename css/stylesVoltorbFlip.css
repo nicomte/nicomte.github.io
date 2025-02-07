@@ -10,11 +10,11 @@ body {
 }
 
 @media (max-width: 600px) {
-    /* Adjust breakpoint as needed */
+
     body {
-        flex-direction: column; /* Stack in a column */
-        align-items: center; /* Prevents large gap */
-        padding-top: 20px; /* Optional: Adds spacing at the top */
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
     }
 }
 
@@ -94,7 +94,7 @@ body {
     border-radius: 5px;
 }
 
-.cardBackgroundNoteMode{
+.cardBackgroundNoteMode {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -327,6 +327,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 #memoContainer {
@@ -339,6 +340,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px 3px 10px 3px;
+    margin-bottom: 20px;
 }
 
 #memoTextContainer {
@@ -361,4 +363,36 @@ body {
     font-weight: bold;
     font-size: clamp(1vw, 2vw, 1.5rem);
     margin: 5px 0;
+}
+
+#memoSelectionContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+        align-items: center;
+    justify-items: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #ca6b51;
+    border-radius: 5px;
+    border: solid #ca6b51 5px;
+}
+.memoSelectOption{
+    background-size: cover;
+    background-position: center;
+    width: 95%;
+    aspect-ratio: 1/1;
+}
+
+#memo1{
+    background-image: url("../img/VoltorbFlip/value1Sepia.png");
+}
+#memo2{
+    background-image: url("../img/VoltorbFlip/value2Sepia.png");
+}
+#memo3{
+    background-image: url("../img/VoltorbFlip/value3Sepia.png");
+}
+#memoVoltorb{
+    background-image: url("../img/VoltorbFlip/valueVoltorbSepia.png");
 }

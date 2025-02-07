@@ -17,11 +17,11 @@ function toggleNoteMode() {
 
 function flipCard(element, values) {
     value = values[element.id];
-    changeIcon(element, value);
+    changeCardIcon(element, value);
     checkWinOrLoss(value, numberOfX2X3);
 }
 
-function changeIcon(element, value) {
+function changeCardIcon(element, value) {
     const backgroundMap = {
         x1: "../img/VoltorbFlip/value1.png",
         x2: "../img/VoltorbFlip/value2.png",
