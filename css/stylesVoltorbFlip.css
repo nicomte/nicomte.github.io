@@ -10,7 +10,6 @@ body {
 }
 
 @media (max-width: 600px) {
-
     body {
         flex-direction: column;
         align-items: center;
@@ -28,7 +27,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
     padding-right: 3%;
 }
 
@@ -53,9 +51,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
     padding: 20px;
-    box-sizing: border-box;
 }
 
 #cardArea {
@@ -65,7 +61,6 @@ body {
     grid-template-columns: repeat(11, auto);
     align-items: center;
     justify-items: center;
-    width: 100%;
     max-width: 600px;
     aspect-ratio: 1 / 1;
 }
@@ -94,15 +89,8 @@ body {
     border-radius: 5px;
 }
 
-.cardBackgroundNoteMode {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    aspect-ratio: 1/1;
+.cardBackground#memo {
     background-color: gold;
-    box-sizing: border-box;
-    border-radius: 5px;
 }
 
 .cardBackground:hover:has(.card) {
@@ -369,7 +357,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-        align-items: center;
+    align-items: center;
     justify-items: center;
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -377,22 +365,37 @@ body {
     border-radius: 5px;
     border: solid #ca6b51 5px;
 }
-.memoSelectOption{
+.memoSelectOption {
     background-size: cover;
     background-position: center;
     width: 95%;
     aspect-ratio: 1/1;
 }
+.memoSelectOption:hover {
+    cursor: pointer;
+}
 
-#memo1{
+.memoPen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    pointer-events: none;
+}
+
+#memo1 {
     background-image: url("../img/VoltorbFlip/value1Sepia.png");
 }
-#memo2{
+#memo2 {
     background-image: url("../img/VoltorbFlip/value2Sepia.png");
 }
-#memo3{
+#memo3 {
     background-image: url("../img/VoltorbFlip/value3Sepia.png");
 }
-#memoVoltorb{
+#memoVoltorb {
     background-image: url("../img/VoltorbFlip/valueVoltorbSepia.png");
 }

@@ -3,16 +3,25 @@ let noteMode = false;
 function toggleNoteMode() {
     if (!noteMode) {
         noteMode = true;
-        document.querySelectorAll(".cardBackground:has(.card)").forEach((element) => {
-            element.className = "cardBackgroundNoteMode";
-        });
+        let cardBackground = document.querySelector(".cardBackground:has(#\\30)");
+        cardBackground.id = "memo";
+
+        let card = cardBackground.querySelector(".card");
+        let memoPen = document.createElement("img");
+        memoPen.src = "../img/VoltorbFlip/memoPen.png";
+        memoPen.className = "memoPen";
+        card.appendChild(memoPen);
+
     } else {
         noteMode = false;
-        document.querySelectorAll(".cardBackgroundNoteMode:has(.card)").forEach((element) => {
-            element.className = "cardBackground";
-        });
+
+        let memoElement = document.getElementById("memo");
+
+        memoElement.id = "";
+
+        let memoPen = memoElement.querySelector(".memoPen");
+        memoPen.remove();
     }
-    console.log(noteMode);
 }
 
 function flipCard(element, values) {
