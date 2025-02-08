@@ -2,10 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
     createCardLayout();
     assignValuesToLayout();
     attachELToNotesButton();
+    attachELToMemoOptions();
 });
 
 function attachELToNotesButton() {
     document.getElementById("memoContainer").addEventListener("click", toggleNoteMode);
+}
+function attachELToMemoOptions() {
+    document.querySelectorAll(".memoSelectOption").forEach((p) => {
+        p.addEventListener("click", function () {
+            toggleMemoOption(this);
+        });
+    });
 }
 
 function writeToTextbox(line1, line2) {

@@ -1,8 +1,11 @@
 let noteMode = false;
 
 function toggleNoteMode() {
+    let memoSelectionContainer = document.getElementById("memoSelectionContainer");
+
     if (!noteMode) {
         noteMode = true;
+        memoSelectionContainer.style.display = "grid";
         let cardBackground = document.querySelector(".cardBackground:has(#\\30)");
         cardBackground.id = "memo";
 
@@ -11,9 +14,9 @@ function toggleNoteMode() {
         memoPen.src = "../img/VoltorbFlip/memoPen.png";
         memoPen.className = "memoPen";
         card.appendChild(memoPen);
-
     } else {
         noteMode = false;
+        memoSelectionContainer.style.display = "none";
 
         let memoElement = document.getElementById("memo");
 
@@ -21,6 +24,14 @@ function toggleNoteMode() {
 
         let memoPen = memoElement.querySelector(".memoPen");
         memoPen.remove();
+    }
+}
+
+function toggleMemoOption(element) {
+    if (element.className !== "memoSelectOptionActive") {
+        element.className = "memoSelectOptionActive";
+    } else {
+        element.className = "memoSelectOption";
     }
 }
 

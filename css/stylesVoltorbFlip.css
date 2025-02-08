@@ -354,7 +354,7 @@ body {
 }
 
 #memoSelectionContainer {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     align-items: center;
@@ -370,6 +370,17 @@ body {
     background-position: center;
     width: 95%;
     aspect-ratio: 1/1;
+    background-color: #b7c7b7
+}
+.memoSelectOptionActive{
+    background-size: cover;
+    background-position: center;
+    width: 95%;
+    aspect-ratio: 1/1;
+    background-color: gold;
+}
+.memoSelectOptionActive:hover{
+    cursor: pointer;
 }
 .memoSelectOption:hover {
     cursor: pointer;
@@ -388,14 +399,14 @@ body {
 }
 
 #memo1 {
-    background-image: url("../img/VoltorbFlip/value1Sepia.png");
+    background-image: url("../img/VoltorbFlip/Nr1.png");
 }
 #memo2 {
-    background-image: url("../img/VoltorbFlip/value2Sepia.png");
+    background-image: url("../img/VoltorbFlip/Nr2.png");
 }
 #memo3 {
-    background-image: url("../img/VoltorbFlip/value3Sepia.png");
+    background-image: url("../img/VoltorbFlip/Nr3.png");
 }
 #memoVoltorb {
-    background-image: url("../img/VoltorbFlip/valueVoltorbSepia.png");
+    background-image: url("../img/VoltorbFlip/voltorbMemo.png");
 }
