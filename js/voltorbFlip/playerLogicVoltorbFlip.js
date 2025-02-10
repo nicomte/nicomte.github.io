@@ -6,8 +6,11 @@ function toggleNoteMode() {
     if (!noteMode) {
         noteMode = true;
         memoSelectionContainer.style.display = "grid";
+
         let cardBackground = document.querySelector(".cardBackground:has(#\\30)");
         cardBackground.id = "memo";
+
+        updateMemoSelection();
 
         let card = cardBackground.querySelector(".card");
         let memoPen = document.createElement("img");
@@ -19,7 +22,6 @@ function toggleNoteMode() {
         memoSelectionContainer.style.display = "none";
 
         let memoElement = document.getElementById("memo");
-
         memoElement.id = "";
 
         let memoPen = memoElement.querySelector(".memoPen");
@@ -30,9 +32,52 @@ function toggleNoteMode() {
 function toggleMemoOption(element) {
     if (element.className !== "memoSelectOptionActive") {
         element.className = "memoSelectOptionActive";
+        addMemoIcon(element);
     } else {
         element.className = "memoSelectOption";
+        removeMemoIcon(element);
     }
+}
+
+function addMemoIcon(element) {
+    let activeCard = document.querySelector(".cardBackground#memo .card");
+    const iconToAdd = element.id;
+    activeCard.classList.add(iconToAdd);
+
+    const img = document.createElement("img");
+    img.src = `../img/VoltorbFlip/${iconToAdd}.png`;
+    img.classList.add("icon", iconToAdd);
+    activeCard.appendChild(img);
+}
+
+function removeMemoIcon(element) {
+    let activeCard = document.querySelector(".cardBackground#memo .card");
+    const iconToRemove = element.id;
+    activeCard.classList.remove(iconToRemove);
+
+    activeCard.querySelector(`.${iconToRemove}`)?.remove();
+}
+
+function updateMemoSelection() {
+    // Aktives .card-Element ermitteln
+    const activeCard = document.querySelector(".cardBackground#memo .card");
+    if (!activeCard) return;
+
+    // Liste der möglichen Icons
+    const memoIcons = ["memo1", "memo2", "memo3", "memoVoltorb"];
+
+    // Alle memoSelectOption-Elemente zurücksetzen
+    document.querySelectorAll(".memoSelectOptionActive").forEach((option) => {
+        option.classList.replace("memoSelectOptionActive", "memoSelectOption");
+    });
+
+    // Prüfen, welche Icons enthalten sind, und die entsprechende Option aktivieren
+    memoIcons.forEach((icon) => {
+        const element = document.getElementById(icon);
+        if (element && activeCard.classList.contains(icon)) {
+            element.classList.replace("memoSelectOption", "memoSelectOptionActive");
+        }
+    });
 }
 
 function flipCard(element, values) {

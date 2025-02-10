@@ -370,16 +370,16 @@ body {
     background-position: center;
     width: 95%;
     aspect-ratio: 1/1;
-    background-color: #b7c7b7
+    background-color: #b7c7b7;
 }
-.memoSelectOptionActive{
+.memoSelectOptionActive {
     background-size: cover;
     background-position: center;
     width: 95%;
     aspect-ratio: 1/1;
     background-color: gold;
 }
-.memoSelectOptionActive:hover{
+.memoSelectOptionActive:hover {
     cursor: pointer;
 }
 .memoSelectOption:hover {
@@ -409,4 +409,26 @@ body {
 }
 #memoVoltorb {
     background-image: url("../img/VoltorbFlip/voltorbMemo.png");
+}
+
+.icon {
+    position: absolute;
+    width: 33%;
+    height: 33%;
+}
+.memo1 {
+    top: 0;
+    left: 0;
+}
+.memo2 {
+    top: 0;
+    right: 0;
+}
+.memo3 {
+    bottom: 0;
+    left: 0;
+}
+.memoVoltorb {
+    bottom: 0;
+    right: 0;
 }
