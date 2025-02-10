@@ -41,6 +41,12 @@ function toggleMemoOption(element) {
 
 function addMemoIcon(element) {
     let activeCard = document.querySelector(".cardBackground#memo .card");
+
+    if (activeCard.classList.contains("clicked")) {
+        writeToTextbox("You alredy flipped this card.", "You can't add any memos to this");
+        return;
+    }
+
     const iconToAdd = element.id;
     activeCard.classList.add(iconToAdd);
 
@@ -56,6 +62,17 @@ function removeMemoIcon(element) {
     activeCard.classList.remove(iconToRemove);
 
     activeCard.querySelector(`.${iconToRemove}`)?.remove();
+}
+
+function removeAllMemoIcons(card) {
+    // Get all classes that match memo icons
+    const memoIcons = ["memo1", "memo2", "memo3", "memoVoltorb"];
+
+    // Remove memo-related classes
+    memoIcons.forEach((icon) => card.classList.remove(icon));
+
+    // Remove any memo image elements inside the card
+    card.querySelectorAll(".icon").forEach((img) => img.remove());
 }
 
 function updateMemoSelection() {
@@ -80,10 +97,25 @@ function updateMemoSelection() {
     });
 }
 
-function flipCard(element, values) {
-    value = values[element.id];
-    changeCardIcon(element, value);
-    checkWinOrLoss(value, numberOfX2X3);
+function flipCard(card, values) {
+    if (noteMode === true) {
+        document.getElementById("memo")?.removeAttribute("id");
+        document.querySelector(".memoPen").remove();
+
+        card.parentElement.id = "memo";
+        let memoPen = document.createElement("img");
+        memoPen.src = "../img/VoltorbFlip/memoPen.png";
+        memoPen.className = "memoPen";
+        card.appendChild(memoPen);
+        updateMemoSelection();
+    } else {
+        card.classList.add('clicked');
+        removeAllMemoIcons(card);
+        updateMemoSelection();
+        value = values[card.id];
+        changeCardIcon(card, value);
+        checkWinOrLoss(value, numberOfX2X3);
+    }
 }
 
 function changeCardIcon(element, value) {

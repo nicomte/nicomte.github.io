@@ -60,8 +60,6 @@ function createCardRow(rowIndex, columnIndex, container, colorScheme) {
     card.addEventListener('click', function () {
         if (!card.classList.contains('clicked')) {
             flipCard(card, valuesCardLayout);
-
-            card.classList.add('clicked');
         }
     });
 
