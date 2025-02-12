@@ -42,11 +42,6 @@ function toggleMemoOption(element) {
 function addMemoIcon(element) {
     let activeCard = document.querySelector(".cardBackground#memo .card");
 
-    if (activeCard.classList.contains("clicked")) {
-        writeToTextbox("You alredy flipped this card.", "You can't add any memos to this");
-        return;
-    }
-
     const iconToAdd = element.id;
     activeCard.classList.add(iconToAdd);
 
@@ -109,7 +104,7 @@ function flipCard(card, values) {
         card.appendChild(memoPen);
         updateMemoSelection();
     } else {
-        card.classList.add('clicked');
+        card.classList.add("clicked");
         removeAllMemoIcons(card);
         updateMemoSelection();
         value = values[card.id];
@@ -205,4 +200,28 @@ function checkWinOrLoss(value, numberOfX2X3) {
                 parseInt(document.getElementById("totalScore").innerText)
         );
     }
+}
+
+function toggleLanguageOptions() {
+    const check = document.getElementById("languageSelectionBox");
+    if (check) {
+        document.getElementById("overlay").remove();
+    } else {
+        document.getElementById("cardArea").innerHTML +=
+            '<div id="overlay" class="overlay"><div id="languageSelectionBox"><div id="english" class="languageOption"></div><div id="deutsch" class="languageOption"></div></div></div>';
+        attachELToLanguageOption();
+    }
+}
+
+function translateText(element) {
+    const selectedLanguage = element.id;
+    switch (selectedLanguage){
+        case "english":
+            document.getElementById("languageBox").style.backgroundImage = "url('../img/VoltorbFlip/english.png')";
+            break;
+        case "deutsch":
+            document.getElementById("languageBox").style.backgroundImage = "url('../img/VoltorbFlip/deutsch.png')";
+            break;
+    }
+    document.getElementById("overlay").remove();
 }

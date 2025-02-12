@@ -12,49 +12,51 @@
     </head>
 
     <body>
-            <div id="gameArea">
-                <div id="levelInterfaceArea">
-                    <div id="lvl8" class="levelBox">Level 8</div>
-                    <div id="lvl7" class="levelBox">Level 7</div>
-                    <div id="lvl6" class="levelBox">Level 6</div>
-                    <div id="lvl5" class="levelBox">Level 5</div>
-                    <div id="lvl4" class="levelBox">Level 4</div>
-                    <div id="lvl3" class="levelBox">Level 3</div>
-                    <div id="lvl2" class="levelBox">Level 2</div>
-                    <div id="lvl1" class="levelBox">Level 1</div>
+        <div id="gameArea">
+            <div id="levelInterfaceArea">
+                <div id="lvl8" class="levelBox">Level 8</div>
+                <div id="lvl7" class="levelBox">Level 7</div>
+                <div id="lvl6" class="levelBox">Level 6</div>
+                <div id="lvl5" class="levelBox">Level 5</div>
+                <div id="lvl4" class="levelBox">Level 4</div>
+                <div id="lvl3" class="levelBox">Level 3</div>
+                <div id="lvl2" class="levelBox">Level 2</div>
+                <div id="lvl1" class="levelBox">Level 1</div>
+            </div>
+            <div id="cardAreaWrapper">
+                <div id="scoreArea">
+                    <div id="currentScoreContainer" class="scoreContainer">
+                        <span id="currentScoreText" class="scoreText" data-key="1">Score this Level:</span>
+                        <span id="currentScore" class="score">00000</span>
+                    </div>
+                    <div id="totalScoreContainer" class="scoreContainer">
+                        <span id="totalScoreText" class="scoreText" data-key="2">Total Score:</span>
+                        <span id="totalScore" class="score">00000</span>
+                    </div>
                 </div>
-                <div id="cardAreaWrapper">
-                    <div id="scoreArea">
-                        <div id="currentScoreContainer" class="scoreContainer">
-                            <span id="currentScoreText" class="scoreText">Score this Level:</span>
-                            <span id="currentScore" class="score">00000</span>
-                        </div>
-                        <div id="totalScoreContainer" class="scoreContainer">
-                            <span id="totalScoreText" class="scoreText">Total Score:</span>
-                            <span id="totalScore" class="score">00000</span>
-                        </div>
-                    </div>
-                    <div id="cardArea"></div>
-                    <div id="textbox">
-                        <p id="textboxLine1" class="textboxLine"></p>
-                        <p id="textboxLine2" class="textboxLine"></p>
-                    </div>
+                <div id="cardArea"></div>
+                <div id="textbox">
+                    <span id="textboxLine1" class="textboxLine"></span>
+                    <span id="textboxLine2" class="textboxLine"></span>
                 </div>
             </div>
+        </div>
 
-            <div id="iconArea">
-                <div id="memoContainer">
-                    <div id="memoTextContainer">
-                        <span class="memoText">OPEN</span>
-                        <span class="memoText">MEMO</span>
-                    </div>
-                </div>
-                <div id="memoSelectionContainer">
-                    <div class="memoSelectOption" id="memo1"></div>
-                    <div class="memoSelectOption" id="memo2"></div>
-                    <div class="memoSelectOption" id="memo3"></div>
-                    <div class="memoSelectOption" id="memoVoltorb"></div>
+        <div id="iconArea">
+            <div id="languageBox"></div>
+            <div id="infoBox"></div>
+            <div id="memoContainer">
+                <div id="memoTextContainer">
+                    <span class="memoText" data-key="3">OPEN</span>
+                    <span class="memoText" data-key="4">MEMO</span>
                 </div>
             </div>
+            <div id="memoSelectionContainer">
+                <div class="memoSelectOption" id="memo1"></div>
+                <div class="memoSelectOption" id="memo2"></div>
+                <div class="memoSelectOption" id="memo3"></div>
+                <div class="memoSelectOption" id="memoVoltorb"></div>
+            </div>
+        </div>
     </body>
 </html>

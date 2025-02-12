@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     assignValuesToLayout();
     attachELToNotesButton();
     attachELToMemoOptions();
+    attachELToLanguageBox();
 });
 
 function attachELToNotesButton() {
@@ -12,6 +13,16 @@ function attachELToMemoOptions() {
     document.querySelectorAll(".memoSelectOption").forEach((p) => {
         p.addEventListener("click", function () {
             toggleMemoOption(this);
+        });
+    });
+}
+function attachELToLanguageBox(){
+    document.getElementById("languageBox").addEventListener("click", toggleLanguageOptions);
+}
+function attachELToLanguageOption(){
+    document.querySelectorAll(".languageOption").forEach((p) => {
+        p.addEventListener("click", function() {
+            translateText(this);
         });
     });
 }
