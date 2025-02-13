@@ -2,7 +2,6 @@
 const colorScheme = ["Red", "Green", "Yellow", "Blue", "Purple"];
 
 function createCardLayout() {
-
     clearLayout();
 
     //Get id of div where cards are placed
@@ -26,6 +25,42 @@ function createCardLayout() {
     for (let i = 0; i < 5; i++) {
         createInfoBox("Column", i, cardArea, colorScheme);
     }
+
+    addInfoBox();
+    addLanguageSelectionBox();
+}
+
+function addInfoBox() {
+    const overlay = document.createElement("div");
+    overlay.id = "overlayHelpBox";
+    overlay.className = "overlay";
+    overlay.innerHTML = `
+            <div id="helpBox">
+                <span class="helpTitle" data-key="5">How to play</span><br />
+                <span class="helpText" data-key="6">Behind each card hides a 1, 2, 3 or Voltorb. You win by flipping all of the x2 and x3 cards in a level.</span>
+                <span class="helpText" data-key="7">Should you flip a Voltorb you lose all points and fall back to level 1.</span><br />
+                <span class="helpText" data-key="8">The coloured boxes help you decide which card to flip. The top number tells you the sum of all numbers in a row/column, while the bottom number tells you how many Voltorb are hiding in each row/column.</span><br />
+                <span class="helpText" data-key="9">The memo button allows you to place memos on each card if you suspect to know what value it hides. While Memo-Mode is active, you cannot accidentally flip a card.</span>
+                <div id="closeHelpButton"><span class="helpText" data-key="10">Close</span></div>
+            </div>
+        `;
+    document.getElementById("cardArea").appendChild(overlay); // Append instead of replacing
+
+    document.getElementById("closeHelpButton").addEventListener("click", toggleHelpBox);
+}
+
+function addLanguageSelectionBox() {
+    const overlay = document.createElement("div");
+    overlay.id = "overlayLanguageSelectionBox";
+    overlay.className = "overlay";
+    overlay.innerHTML = `
+            <div id="languageSelectionBox">
+                <div id="en" class="languageOption"></div>
+                <div id="de" class="languageOption"></div>
+            </div>
+        `;
+    document.getElementById("cardArea").appendChild(overlay); // Append instead of replace
+    attachELToLanguageOption();
 }
 
 function createColoredLineVertical(index, container, colorScheme) {
@@ -50,15 +85,14 @@ function createColoredLineVertical(index, container, colorScheme) {
 }
 
 function createCardRow(rowIndex, columnIndex, container, colorScheme) {
-
     const cardBackground = document.createElement("div");
     cardBackground.className = "cardBackground";
 
     const card = document.createElement("div");
     card.className = "card";
     card.id = rowIndex * 5 + columnIndex;
-    card.addEventListener('click', function () {
-        if (!card.classList.contains('clicked')) {
+    card.addEventListener("click", function () {
+        if (!card.classList.contains("clicked")) {
             flipCard(card, valuesCardLayout);
         }
     });
@@ -78,7 +112,6 @@ function createCardRow(rowIndex, columnIndex, container, colorScheme) {
 }
 
 function createInfoBox(rowOrColumn, index, container, colorScheme) {
-
     //Create div background for columnInfo
     const infoBoxBackground = document.createElement("div");
     infoBoxBackground.className = "cardBackground";
@@ -136,9 +169,8 @@ function createInfoBox(rowOrColumn, index, container, colorScheme) {
         coloredLineBackground.appendChild(coloredLine);
         container.appendChild(coloredLineBackground);
     }
-
 }
 
-function clearLayout(){
-    document.getElementById('cardArea').innerHTML = "";
+function clearLayout() {
+    document.getElementById("cardArea").innerHTML = "";
 }

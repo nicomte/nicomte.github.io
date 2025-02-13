@@ -57,12 +57,15 @@ body {
     aspect-ratio: 1 / 1;
 }
 
+#resultOverlay{
+    display: flex;
+}
+
 .overlay {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
@@ -283,7 +286,9 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     padding: 3%;
     background-color: white;
     margin: 2%;
@@ -425,6 +430,10 @@ body {
     right: 0;
 }
 
+#overlayHelpBox {
+    display: none;
+}
+
 #infoBox {
     border: 5px solid black;
     border-radius: 5px;
@@ -437,8 +446,12 @@ body {
     background-image: url(../img/VoltorbFlip/infoIcon.png);
     margin: 2%;
 }
-#infoBox:hover{
+#infoBox:hover {
     cursor: pointer;
+}
+
+#overlayLanguageSelectionBox {
+    display: none;
 }
 
 #languageBox {
@@ -464,7 +477,7 @@ body {
     width: 100%;
 }
 
-.languageOption{
+.languageOption {
     border: 5px solid black;
     border-radius: 50%;
     background-size: cover;
@@ -473,13 +486,13 @@ body {
     height: 30%;
     aspect-ratio: 1/1;
 }
-.languageOption:hover{
+.languageOption:hover {
     cursor: pointer;
 }
-#english {
+#en {
     background-image: url(../img/VoltorbFlip/english.png);
 }
-#deutsch {
+#de {
     background-image: url(../img/VoltorbFlip/deutsch.png);
 }
 

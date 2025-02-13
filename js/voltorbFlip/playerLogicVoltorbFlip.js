@@ -127,7 +127,7 @@ function changeCardIcon(element, value) {
 }
 
 function displayOverlay(result) {
-    document.getElementById("cardArea").innerHTML += '<div id="overlay" class="overlay"></div>';
+    document.getElementById("cardArea").innerHTML += '<div id="resultOverlay" class="overlay"></div>';
 
     if (result === "loss") {
         document.getElementById("lvl" + parseInt(currentLevel + 1)).style.backgroundColor = "white";
@@ -203,66 +203,41 @@ function checkWinOrLoss(value, numberOfX2X3) {
 }
 
 function toggleLanguageOptions() {
-    const checkOverlay = document.getElementById("overlay");
-    const checkLanguageSelectionBox = document.getElementById("languageSelectionBox");
+    const resultOverlay = document.getElementById("resultOverlay");
+    const overlayHelpBox = getComputedStyle(document.getElementById("overlayHelpBox")).display;
+    const sameOverlay = document.getElementById("overlayLanguageSelectionBox");
 
-    if (checkLanguageSelectionBox) {
-        checkOverlay.remove();
-    } else if (checkOverlay) {
+    if (resultOverlay || overlayHelpBox === "flex") {
         return;
-    } else {
-        const overlay = document.createElement("div");
-        overlay.id = "overlay";
-        overlay.className = "overlay";
-        overlay.innerHTML = `
-            <div id="languageSelectionBox">
-                <div id="english" class="languageOption"></div>
-                <div id="deutsch" class="languageOption"></div>
-            </div>
-        `;
-        document.getElementById("cardArea").appendChild(overlay); // Append instead of replace
-        attachELToLanguageOption();
+    } else if (sameOverlay) {
+        const isHidden = getComputedStyle(sameOverlay).display === "none";
+        sameOverlay.style.display = isHidden ? "flex" : "none";
     }
 }
 
 function toggleHelpBox() {
-    const checkOverlay = document.getElementById("overlay");
-    const checkHelpBox = document.getElementById("helpBox");
+    const resultOverlay = document.getElementById("resultOverlay");
+    const overlayLanguageSelectionBox = getComputedStyle(document.getElementById("overlayLanguageSelectionBox")).display;
+    const sameOverlay = document.getElementById("overlayHelpBox");
 
-    if (checkHelpBox) {
-        checkOverlay.remove();
-    } else if (checkOverlay) {
+    if (resultOverlay || overlayLanguageSelectionBox === "flex") {
         return;
-    } else {
-        const overlay = document.createElement("div");
-        overlay.id = "overlay";
-        overlay.className = "overlay";
-        overlay.innerHTML = `
-            <div id="helpBox">
-                <span class="helpTitle">How to play</span><br />
-                <span class="helpText">Behind each card hides a 1, 2, 3 or Voltorb. You win by flipping all of the x2 and x3 cards in a level.</span>
-                <span class="helpText">Should you flip a Voltorb you lose all points and fall back to level 1.</span><br />
-                <span class="helpText">The coloured boxes help you decide which card to flip. The top number tells you the sum of all numbers in a row/column, while the bottom number tells you how many Voltorb are hiding in each row/column.</span><br />
-                <span class="helpText">The memo button allows you to place memos on each card if you suspect to know what value it hides. While Memo-Mode is active, you cannot accidentally flip a card.</span>
-                <div id="closeHelpButton"><span class="helpText">Close</span></div>
-            </div>
-        `;
-        document.getElementById("cardArea").appendChild(overlay); // Append instead of replacing
-
-        document.getElementById("closeHelpButton").addEventListener("click", toggleHelpBox);
+    } else if (sameOverlay) {
+        const isHidden = getComputedStyle(sameOverlay).display === "none";
+        sameOverlay.style.display = isHidden ? "flex" : "none";
     }
 }
-
 
 function translateText(element) {
     const selectedLanguage = element.id;
     switch (selectedLanguage) {
-        case "english":
+        case "en":
             document.getElementById("languageBox").style.backgroundImage = "url('../img/VoltorbFlip/english.png')";
             break;
-        case "deutsch":
+        case "de":
             document.getElementById("languageBox").style.backgroundImage = "url('../img/VoltorbFlip/deutsch.png')";
             break;
     }
-    document.getElementById("overlay").remove();
+    document.getElementById("overlayLanguageSelectionBox").style.display = "none";
+    changeLanguage(selectedLanguage);
 }
