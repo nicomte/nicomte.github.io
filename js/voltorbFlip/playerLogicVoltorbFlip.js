@@ -147,7 +147,7 @@ function displayOverlay(result) {
 
 function closeOverlay() {
     document.body.removeEventListener("click", closeOverlay, { capture: true });
-    document.getElementById("overlay").remove();
+    document.getElementById("resultOverlay").remove();
     writeToTextbox(0,0);
     createCardLayout();
     assignValuesToLayout();
