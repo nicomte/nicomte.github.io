@@ -203,9 +203,12 @@ function checkWinOrLoss(value, numberOfX2X3) {
 }
 
 function toggleLanguageOptions() {
-    const check = document.getElementById("languageSelectionBox");
-    if (check) {
+    const checkOverlay = document.getElementById("overlay");
+    const checkLanguageSelectionBox = document.getElementById("languageSelectionBox");
+    if (checkLanguageSelectionBox) {
         document.getElementById("overlay").remove();
+    } else if (checkOverlay) {
+        return;
     } else {
         document.getElementById("cardArea").innerHTML +=
             '<div id="overlay" class="overlay"><div id="languageSelectionBox"><div id="english" class="languageOption"></div><div id="deutsch" class="languageOption"></div></div></div>';
@@ -213,9 +216,23 @@ function toggleLanguageOptions() {
     }
 }
 
+function toggleHelpBox() {
+    const checkOverlay = document.getElementById("overlay");
+    const checkHelpBox = document.getElementById("helpBox");
+    if (checkHelpBox) {
+        document.getElementById("overlay").remove();
+    } else if (checkOverlay) {
+        return;
+    } else {
+        document.getElementById("cardArea").innerHTML +=
+            '<div id="overlay" class="overlay"><div id="helpBox"><span class="helpTitle">How to play</span><br /><span class="helpText">Behind each card hides a 1, 2, 3 or Voltorb. You win by flipping all of the x2 and x3 cards in a level.</span><span class="helpText">Should you flip a Voltorb you lose all points and fall back to level 1.</span><br /><span class="helpText">The coloured boxes help you decide which card to flip. The top number tells you the sum of all numbers in a row/column, while the bottom number tells you how many Voltorb are hiding in each row/column.</span><br /><span class="helpText">The memo button allows you to place memos on each card if you suspect to know what value it hides. While Memo-Mode is active, you cannot accidentaly flip a card.</span><div id="closeHelpButton"><span class="helpText">Close</span></div></div></div>';
+        document.getElementById("closeHelpButton").addEventListener("click", toggleHelpBox);
+    }
+}
+
 function translateText(element) {
     const selectedLanguage = element.id;
-    switch (selectedLanguage){
+    switch (selectedLanguage) {
         case "english":
             document.getElementById("languageBox").style.backgroundImage = "url('../img/VoltorbFlip/english.png')";
             break;

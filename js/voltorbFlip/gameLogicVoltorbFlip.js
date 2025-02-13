@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     attachELToNotesButton();
     attachELToMemoOptions();
     attachELToLanguageBox();
+    attachELToHelpBox();
 });
 
 function attachELToNotesButton() {
@@ -25,6 +26,9 @@ function attachELToLanguageOption(){
             translateText(this);
         });
     });
+}
+function attachELToHelpBox(){
+    document.getElementById("infoBox").addEventListener("click", toggleHelpBox);
 }
 
 function writeToTextbox(line1, line2) {
