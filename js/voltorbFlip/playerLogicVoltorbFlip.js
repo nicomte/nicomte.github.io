@@ -132,24 +132,23 @@ function displayOverlay(result) {
     if (result === "loss") {
         document.getElementById("lvl" + parseInt(currentLevel + 1)).style.backgroundColor = "white";
         currentLevel = 0;
-        writeToTextbox("Voltorb!!! You lose all gathered points!", "Click anywhere to retry");
+        writeToTextbox(11, 12);
     } else if (result === "win") {
         if (currentLevel === 7) {
-            writeToTextbox("Wow, incredible! You beat every level!", "Click anywhere to restart!");
+            writeToTextbox(13, 14);
             currentLevel = 0;
         } else {
             currentLevel++;
-            writeToTextbox("Congrats! You found all x2 and x3!", "Click anywhere to continue to the next level!");
+            writeToTextbox(15, 16);
         }
     }
-
     document.body.addEventListener("click", closeOverlay, { capture: true });
 }
 
 function closeOverlay() {
     document.body.removeEventListener("click", closeOverlay, { capture: true });
     document.getElementById("overlay").remove();
-    writeToTextbox(" ", " ");
+    writeToTextbox(0,0);
     createCardLayout();
     assignValuesToLayout();
     updateLevelHighlighter(currentLevel);
@@ -163,14 +162,14 @@ function updateLevelHighlighter(currentLevel) {
 function checkWinOrLoss(value, numberOfX2X3) {
     switch (value) {
         case "x1":
-            writeToTextbox("Found an x1!", "");
+            writeToTextbox(17, 0);
             if (parseInt(document.getElementById("currentScore").innerText) === 0) {
                 writeScore(1);
             }
             break;
         case "x2":
             numberOfX2X3[0]--;
-            writeToTextbox("Found an x2!", "");
+            writeToTextbox(18, 0);
             if (parseInt(document.getElementById("currentScore").innerText) === 0) {
                 writeScore(parseInt(document.getElementById("currentScore").innerText) + 2);
             } else {
@@ -179,7 +178,7 @@ function checkWinOrLoss(value, numberOfX2X3) {
             break;
         case "x3":
             numberOfX2X3[1]--;
-            writeToTextbox("Found an x3!", "");
+            writeToTextbox(19, 0);
             if (parseInt(document.getElementById("currentScore").innerText) === 0) {
                 writeScore(parseInt(document.getElementById("currentScore").innerText) + 3);
             } else {
@@ -217,7 +216,9 @@ function toggleLanguageOptions() {
 
 function toggleHelpBox() {
     const resultOverlay = document.getElementById("resultOverlay");
-    const overlayLanguageSelectionBox = getComputedStyle(document.getElementById("overlayLanguageSelectionBox")).display;
+    const overlayLanguageSelectionBox = getComputedStyle(
+        document.getElementById("overlayLanguageSelectionBox")
+    ).display;
     const sameOverlay = document.getElementById("overlayHelpBox");
 
     if (resultOverlay || overlayLanguageSelectionBox === "flex") {
@@ -230,14 +231,17 @@ function toggleHelpBox() {
 
 function translateText(element) {
     const selectedLanguage = element.id;
-    switch (selectedLanguage) {
-        case "en":
-            document.getElementById("languageBox").style.backgroundImage = "url('../img/VoltorbFlip/english.png')";
-            break;
-        case "de":
-            document.getElementById("languageBox").style.backgroundImage = "url('../img/VoltorbFlip/deutsch.png')";
-            break;
-    }
+    const languageBox = document.getElementById("languageBox");
+
+    // Set the background image based on the selected language
+    languageBox.style.backgroundImage = `url('../img/VoltorbFlip/${selectedLanguage}.png')`;
+
+    // Set the language tag using a data attribute
+    languageBox.setAttribute("data-lang", selectedLanguage);
+
+    // Hide the language selection overlay
     document.getElementById("overlayLanguageSelectionBox").style.display = "none";
+
+    // Call changeLanguage function
     changeLanguage(selectedLanguage);
 }

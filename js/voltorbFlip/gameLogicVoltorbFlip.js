@@ -31,12 +31,18 @@ function attachELToHelpBox() {
     document.getElementById("infoBox").addEventListener("click", toggleHelpBox);
 }
 
-function writeToTextbox(line1, line2) {
-    if (line1) {
-        document.getElementById("textboxLine1").innerText = line1;
+function writeToTextbox(key1, key2) {
+    const currentLanguage = document.getElementById("languageBox").getAttribute("data-lang");
+
+    if (key1) {
+        let line1 = document.getElementById("textboxLine1");
+        line1.innerText = translations[currentLanguage][key1];
+        line1.setAttribute("data-key", key1);
     }
-    if (line2) {
-        document.getElementById("textboxLine2").innerText = line2;
+    if (key2) {
+        let line2 = document.getElementById("textboxLine2");
+        line2.innerText = translations[currentLanguage][key2];
+        line2.setAttribute("data-key", key2);
     }
 }
 
@@ -58,17 +64,18 @@ function writeScore(levelScore, totalScore) {
 }
 
 function changeLanguage(lang) {
-    document.querySelectorAll("span").forEach(element => {
+    document.querySelectorAll("span").forEach((element) => {
         const key = element.getAttribute("data-key");
-        if (key && translations[lang][key]) { // Check if data-key is not empty and exists in translations
+        if (key && translations[lang][key]) {
+            // Check if data-key is not empty and exists in translations
             element.textContent = translations[lang][key];
         }
     });
 }
 
-
 const translations = {
     en: {
+        0: " ",
         1: "Score this Level:",
         2: "Total Score:",
         3: "OPEN",
@@ -78,9 +85,19 @@ const translations = {
         7: "Should you flip a Voltorb you lose all points and fall back to level 1.",
         8: "The coloured boxes help you decide which card to flip. The top number tells you the sum of all numbers in a row/column, while the bottom number tells you how many Voltorb are hiding in each row/column.",
         9: "The memo button allows you to place memos on each card if you suspect to know what value it hides. While Memo-Mode is active, you cannot accidentally flip a card.",
-        10: "Close"
+        10: "Close",
+        11: "Voltorb!!! You lose all gathered points!",
+        12: "Click anywhere to retry",
+        13: "Wow, incredible! You beat every level!",
+        14: "Click anywhere to restart!",
+        15: "Congrats! You found all x2 and x3!",
+        16: "Click anywhere to continue to the next level!",
+        17: "Found an x1!",
+        18: "Found an x2!",
+        19: "Found an x3!"
     },
     de: {
+        0: " ",
         1: "Punkte in diesem Level:",
         2: "Gesamtpunktzahl:",
         3: "ÖFFNE",
@@ -90,6 +107,15 @@ const translations = {
         7: "Solltest du ein Voltobal aufdecken, verlierst du alle Punkte und fällst auf Level 1 zurück.",
         8: "Die farbigen Felder helfen dir zu entscheiden, welche Karte du aufdecken solltest. Die obere Zahl zeigt die Summe aller Zahlen in einer Reihe oder Spalte an, während die untere Zahl angibt, wie viele Voltorb sich dort verbergen.",
         9: "Die Memo-Taste erlaubt es dir, Notizen auf jeder Karte zu setzen, wenn du vermutest, welchen Wert sie hat. Während der Memo-Modus aktiv ist, kannst du keine Karte versehentlich aufdecken.",
-        10: "Schließen"
+        10: "Schließen",
+        11: "Voltorb!!! Du verlierst alle gesammelten Punkte!",
+        12: "Klicke irgendwo, um es erneut zu versuchen",
+        13: "Wow, unglaublich! Du hast jedes Level gemeistert!",
+        14: "Klicke irgendwo, um neu zu starten!",
+        15: "Glückwunsch! Du hast alle x2 und x3 gefunden!",
+        16: "Klicke irgendwo, um zum nächsten Level zu gelangen!",
+        17: "Ein x1 gefunden!",
+        18: "Ein x2 gefunden!",
+        19: "Ein x3 gefunden!"
     }
 };
