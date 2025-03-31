@@ -1,33 +1,39 @@
 <!doctype html>
 <html lang="en">
 
+<head>
+    <link rel="stylesheet" href="../css/stylesContributionMargin.css" />
+    <script src="../js/ContributionIncomeStatement/contributionRechner.js"></script>
+</head>
+
 <body>
     <table>
         <thead>
             <tr id="colHeads">
-                <th scope="col" class="colTitle init-val">Initial Value</th>
-                <th scope="col" class="colTitle var-1">Variant 1</th>
-                <th scope="col" class="colTitle mult-var-1">Multiplier V 1</th>
+                <th scope="col" class="colTitle">Type</th>
+                <th scope="col" class="colTitle">Initial Value</th>
+                <th scope="col" class="colTitle">Variant 1</th>
+                <th scope="col" class="colTitle">Multiplier V 1</th>
             </tr>
         </thead>
         <tbody>
             <tr id="rowSales">
                 <th class="rowTitle">Sales</th>
-                <td class="sales init-val"></td>
+                <td><input class="sales init-val" type="number"></td>
                 <td class="sales var-1"></td>
-                <td class="sales mult-var-1"></td>
+                <td><input class="sales mult-var-1" type="number" step="0.1"></td>
             </tr>
             <tr id="rowVarMan">
                 <th class="rowTitle">Variable Manufacturing Costs</th>
-                <td class="varMan init-val"></td>
+                <td><input class="varMan init-val" type="number"></td>
                 <td class="varMan var-1"></td>
-                <td class="varMan mult-var-1"></td>
+                <td><input class="varMan mult-var-1" type="number" step="0.1"></td>
             </tr>
             <tr id="rowVarAd">
                 <th class="rowTitle">Variable Selling/Admin Costs</th>
-                <td class="varAd init-val"></td>
+                <td><input class="varAd init-val" type="number"></td>
                 <td class="varAd var-1"></td>
-                <td class="varAd mult-var-1"></td>
+                <td><input class="varAd mult-var-1" type="number" step="0.1"></td>
             </tr>
             <tr id="rowTotalVar">
                 <th class="rowTitle">Total Variable Costs</th>
@@ -43,15 +49,15 @@
             </tr>
             <tr id="rowFixMan">
                 <th class="rowTitle">Fixed Manufacturing Costs</th>
-                <td class="fixMan init-val"></td>
+                <td><input class="fixMan init-val" type="number"></td>
                 <td class="fixMan var-1"></td>
-                <td class="fixMan mult-var-1"></td>
+                <td><input class="fixMan mult-var-1" type="number" step="0.1"></td>
             </tr>
             <tr id="rowFixAd">
                 <th class="rowTitle">Fixed Selling/Admin Costs</th>
-                <td class="fixAd init-val"></td>
+                <td><input class="fixAd init-val" type="number"></td>
                 <td class="fixAd var-1"></td>
-                <td class="fixAd mult-var-1"></td>
+                <td><input class="fixAd mult-var-1" type="number" step="0.1"></td>
             </tr>
             <tr id="rowTotalFix">
                 <th class="rowTitle">Total Fixed Costs</th>
